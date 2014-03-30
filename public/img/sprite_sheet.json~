@@ -1,0 +1,182 @@
+{
+  "frames": {
+    "board_01.png": {
+	"frame": {"x":0,"y":0,"w":1536,"h":2048},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1536,"h":2048},
+	"sourceSize": {"w":1536,"h":2048}
+    },
+    "border_blue.png": {
+      "frame": {
+        "x": 1536,
+        "y": 0,
+        "w": 773,
+        "h": 2048
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 773,
+        "h": 2048
+      },
+      "sourceSize": {
+        "w": 773,
+        "h": 2048
+      }
+    },
+    "border_blue_glow.png": {
+      "frame": {
+        "x": 2309,
+        "y": 0,
+        "w": 773,
+        "h": 2048
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 773,
+        "h": 2048
+      },
+      "sourceSize": {
+        "w": 773,
+        "h": 2048
+      }
+    },
+    "handle_blue.png": {
+      "frame": {
+        "x": 0,
+        "y": 2048,
+        "w": 384,
+        "h": 384
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 384,
+        "h": 384
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 384
+      }
+    },
+    "handle_blue_glow.png": {
+      "frame": {
+        "x": 384,
+        "y": 2048,
+        "w": 384,
+        "h": 384
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 384,
+        "h": 384
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 384
+      }
+    },
+    "handle_green.png": {
+      "frame": {
+        "x": 768,
+        "y": 2048,
+        "w": 384,
+        "h": 384
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 384,
+        "h": 384
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 384
+      }
+    },
+    "handle_green_glow.png": {
+      "frame": {
+        "x": 1152,
+        "y": 2048,
+        "w": 384,
+        "h": 384
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 384,
+        "h": 384
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 384
+      }
+    },
+    "puck_black.png": {
+      "frame": {
+        "x": 1536,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "puck_black_glow.png": {
+      "frame": {
+        "x": 1792,
+        "y": 2048,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "sprite_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 3082,
+      "h": 2432
+    },
+    "scale": 1
+  }
+}
