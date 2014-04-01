@@ -13,7 +13,7 @@
   function Main() {
     window.addEventListener('load', this.onDomReady.bind(this), false);
     window.addEventListener('mousedown', this.onMouseDown.bind(this), false);
-    window,addEventListener('mouseup', this.onMouseUp.bind(this), false);
+    window.addEventListener('mouseup', this.onMouseUp.bind(this), false);
   }
 
   Main.prototype.onMouseDown = function() {
@@ -30,7 +30,7 @@
   };
 
   Main.prototype.setupCanvas = function() {
-    this.stage = window.flappyPlane.stage = new PIXI.Stage(0x000000, true);
+    this.stage = FlappyPlane.stage = new PIXI.Stage(0x000000, true);
     renderer = PIXI.autoDetectRenderer(WW, WH);
     document.body.appendChild(renderer.view);
   };
@@ -73,20 +73,20 @@
   
   function initGameLoop() {
     requestAnimationFrame(initGameLoop); 
-    clouds.tilePosition.x -= 2;
-    ground.tilePosition.x -= 4;
+    clouds.tilePosition.x -= FlappyPlane.CLOUDS_SPEED;
+    ground.tilePosition.x -= FlappyPlane.GROUND_SPEED;
     if(PLANE_FALLING) {
-      redPlane.position.y += 7;
-      if(redPlane.rotation <= 0.5) {
-        redPlane.rotation += 0.1;
+      redPlane.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+      if(redPlane.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
+        redPlane.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
       }
     } else {
-      redPlane.position.y -= 8;
-      if(redPlane.rotation >= -0.5) {
-        redPlane.rotation -= 0.1;
+      redPlane.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
+      if(redPlane.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
+        redPlane.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
       }
     }
-    renderer.render(window.flappyPlane.stage);
+    renderer.render(FlappyPlane.stage);
   }
 
   module.exports = Main;

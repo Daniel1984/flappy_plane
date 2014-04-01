@@ -1,4 +1,13 @@
-window.flappyPlane = {};
+window.FlappyPlane = {
+  CLOUDS_SPEED: 2,
+  GROUND_SPEED: 4,
+  PLANE_TAKE_OFF_SPEED: 8,
+  PLANE_LANDING_SPEED: 7,
+  PLANE_ROTATE_UP_SPEED: 0.1,
+  PLANE_ROTATE_DOWN_SPEED: 0.1,
+  PLANE_ROTATE_DOWN_MAX: 0.5,
+  PLANE_ROTATE_UP_MAX: -0.5
+};
 
 var Engine = require('./engine');
 new Engine();
