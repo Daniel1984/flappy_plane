@@ -2,8 +2,10 @@
   
   var PIXI = require('pixi.js'),
       AssetLoader = require('./asset_loader'),
-      clouds, ground, rockDown, rockUp, renderer,
-      redPlane,
+      Clouds = require('./views/background/clouds'), 
+      Ground = require('./views/background/ground'),
+      Plane = require('./views/planes/main'),
+      rockDown, rockUp, renderer,
       groundContainer = new PIXI.DisplayObjectContainer(),
       rocksContainer = new PIXI.DisplayObjectContainer(),
       WH = window.innerHeight, 
@@ -41,9 +43,8 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
-    var cloudsTexture = PIXI.Texture.fromFrame("/img/background.png");
-    clouds = new PIXI.TilingSprite(cloudsTexture, WW, WH);
-    this.stage.addChild(clouds);
+    Clouds = new Clouds(PIXI.Texture.fromFrame("/img/background.png"), WW, WH);
+    this.stage.addChild(Clouds);
 
     rockDown = PIXI.Sprite.fromFrame('/img/rockSnowDown.png');
     rockDown.position.y = -30;
@@ -55,35 +56,28 @@
     rockUp.position.x = 600;
     this.stage.addChild(rockUp);
 
-    var groundTexture = PIXI.Texture.fromFrame("/img/groundGrass.png");
-    ground = new PIXI.TilingSprite(groundTexture, WW, groundTexture.baseTexture.height);
-    ground.position.y = WH - groundTexture.baseTexture.height + 20;
-    this.stage.addChild(ground);
+    Ground = new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png"), WW, WH);
+    this.stage.addChild(Ground);
 
-    redPlane = PIXI.Sprite.fromFrame('/img/Planes/planeRed1.png');
-    redPlane.position.y = WH / 2 - redPlane.height / 2;
-    redPlane.position.x = 100;
-    redPlane.anchor.x = 0.5;
-    redPlane.anchor.y = 0.5;
-    redPlane.rotation = 0.5;
-    this.stage.addChild(redPlane);
+    Plane = new Plane(PIXI.Texture.fromFrame('/img/Planes/planeRed1.png'), WH);
+    this.stage.addChild(Plane);
 
     initGameLoop();
   };
   
   function initGameLoop() {
     requestAnimationFrame(initGameLoop); 
-    clouds.tilePosition.x -= FlappyPlane.CLOUDS_SPEED;
-    ground.tilePosition.x -= FlappyPlane.GROUND_SPEED;
+    Clouds.tilePosition.x -= FlappyPlane.CLOUDS_SPEED;
+    Ground.tilePosition.x -= FlappyPlane.GROUND_SPEED;
     if(PLANE_FALLING) {
-      redPlane.position.y += FlappyPlane.PLANE_LANDING_SPEED;
-      if(redPlane.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
-        redPlane.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
+      Plane.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+      if(Plane.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
+        Plane.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
       }
     } else {
-      redPlane.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
-      if(redPlane.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
-        redPlane.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
+      Plane.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
+      if(Plane.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
+        Plane.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
       }
     }
     renderer.render(FlappyPlane.stage);

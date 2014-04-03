@@ -16,13 +16,15 @@
 
 })();
 
-},{"pixi.js":4}],2:[function(require,module,exports){
+},{"pixi.js":7}],2:[function(require,module,exports){
 (function() {
   
   var PIXI = require('pixi.js'),
       AssetLoader = require('./asset_loader'),
-      clouds, ground, rockDown, rockUp, renderer,
-      redPlane,
+      Clouds = require('./views/background/clouds'), 
+      Ground = require('./views/background/ground'),
+      Plane = require('./views/planes/main'),
+      rockDown, rockUp, renderer,
       groundContainer = new PIXI.DisplayObjectContainer(),
       rocksContainer = new PIXI.DisplayObjectContainer(),
       WH = window.innerHeight, 
@@ -60,9 +62,8 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
-    var cloudsTexture = PIXI.Texture.fromFrame("/img/background.png");
-    clouds = new PIXI.TilingSprite(cloudsTexture, WW, WH);
-    this.stage.addChild(clouds);
+    Clouds = new Clouds(PIXI.Texture.fromFrame("/img/background.png"), WW, WH);
+    this.stage.addChild(Clouds);
 
     rockDown = PIXI.Sprite.fromFrame('/img/rockSnowDown.png');
     rockDown.position.y = -30;
@@ -74,35 +75,28 @@
     rockUp.position.x = 600;
     this.stage.addChild(rockUp);
 
-    var groundTexture = PIXI.Texture.fromFrame("/img/groundGrass.png");
-    ground = new PIXI.TilingSprite(groundTexture, WW, groundTexture.baseTexture.height);
-    ground.position.y = WH - groundTexture.baseTexture.height + 20;
-    this.stage.addChild(ground);
+    Ground = new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png"), WW, WH);
+    this.stage.addChild(Ground);
 
-    redPlane = PIXI.Sprite.fromFrame('/img/Planes/planeRed1.png');
-    redPlane.position.y = WH / 2 - redPlane.height / 2;
-    redPlane.position.x = 100;
-    redPlane.anchor.x = 0.5;
-    redPlane.anchor.y = 0.5;
-    redPlane.rotation = 0.5;
-    this.stage.addChild(redPlane);
+    Plane = new Plane(PIXI.Texture.fromFrame('/img/Planes/planeRed1.png'), WH);
+    this.stage.addChild(Plane);
 
     initGameLoop();
   };
   
   function initGameLoop() {
     requestAnimationFrame(initGameLoop); 
-    clouds.tilePosition.x -= FlappyPlane.CLOUDS_SPEED;
-    ground.tilePosition.x -= FlappyPlane.GROUND_SPEED;
+    Clouds.tilePosition.x -= FlappyPlane.CLOUDS_SPEED;
+    Ground.tilePosition.x -= FlappyPlane.GROUND_SPEED;
     if(PLANE_FALLING) {
-      redPlane.position.y += FlappyPlane.PLANE_LANDING_SPEED;
-      if(redPlane.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
-        redPlane.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
+      Plane.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+      if(Plane.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
+        Plane.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
       }
     } else {
-      redPlane.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
-      if(redPlane.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
-        redPlane.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
+      Plane.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
+      if(Plane.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
+        Plane.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
       }
     }
     renderer.render(FlappyPlane.stage);
@@ -112,7 +106,7 @@
 
 })();
 
-},{"./asset_loader":1,"pixi.js":4}],3:[function(require,module,exports){
+},{"./asset_loader":1,"./views/background/clouds":4,"./views/background/ground":5,"./views/planes/main":6,"pixi.js":7}],3:[function(require,module,exports){
 window.FlappyPlane = {
   CLOUDS_SPEED: 2,
   GROUND_SPEED: 4,
@@ -128,6 +122,69 @@ var Engine = require('./engine');
 new Engine();
 
 },{"./engine":2}],4:[function(require,module,exports){
+(function() {
+  'use strict';
+
+  var PIXI = require('pixi.js');
+
+  function Clouds(texture, width, height) {
+    PIXI.TilingSprite.call(this, texture, width, height);
+    this.position.x = 0;
+    this.position.y = 0;
+    this.tilePosition.x = 0;
+    this.tilePosition.y = 0;
+  }
+  
+  Clouds.constructor = Clouds;
+  Clouds.prototype = Object.create(PIXI.TilingSprite.prototype);
+
+  module.exports = Clouds;
+
+})();
+
+},{"pixi.js":7}],5:[function(require,module,exports){
+(function() {
+  'use strict';
+
+  var PIXI = require('pixi.js');
+
+  function Ground(texture, width, height) {
+    PIXI.TilingSprite.call(this, texture, width, texture.baseTexture.height);
+    this.position.x = 0;
+    this.tilePosition.x = 0;
+    this.position.y = height - texture.baseTexture.height + 20;
+  }
+
+  Ground.constructor = Ground;
+  Ground.prototype = Object.create(PIXI.TilingSprite.prototype);
+
+  module.exports = Ground;
+
+})();
+
+},{"pixi.js":7}],6:[function(require,module,exports){
+(function() {
+  'use strict';
+
+  var PIXI = require('pixi.js');
+
+  function Plane(texture, stageHeight) {
+    PIXI.Sprite.call(this, texture);
+    this.position.y = stageHeight / 2 - this.height / 2;
+    this.position.x = 100;
+    this.anchor.x = 0.5;
+    this.anchor.y = 0.5;
+    this.rotation = 0.5;
+  }
+
+  Plane.constructor = Plane;
+  Plane.prototype = Object.create(PIXI.Sprite.prototype);
+
+  module.exports = Plane;
+
+})();
+
+},{"pixi.js":7}],7:[function(require,module,exports){
 /**
  * @license
  * pixi.js - v1.5.1
