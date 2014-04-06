@@ -1,0 +1,7 @@
+1) Install node.js
+2) install express and gulp globally: npm install express -g, npm install gulp -g
+3) run npm install in projet dir
+4) run gulp build to build files
+5) run gulp watch so js is compiled on each save
+
+If adding new file, gulp fails to detect its changes so Ctrl + c to stop gulp from watching fs and run gulp watch again

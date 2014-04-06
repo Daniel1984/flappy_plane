@@ -16,7 +16,7 @@
 
 })();
 
-},{"pixi.js":7}],2:[function(require,module,exports){
+},{"pixi.js":9}],2:[function(require,module,exports){
 (function() {
   
   var PIXI = require('pixi.js'),
@@ -24,12 +24,8 @@
       Clouds = require('./views/background/clouds'), 
       Ground = require('./views/background/ground'),
       Plane = require('./views/planes/main'),
-      rockDown, rockUp, renderer,
-      groundContainer = new PIXI.DisplayObjectContainer(),
-      rocksContainer = new PIXI.DisplayObjectContainer(),
       WH = window.innerHeight, 
-      WW = window.innerWidth,
-      PLANE_FALLING = true;
+      WW = window.innerWidth;
 
   function Main() {
     window.addEventListener('load', this.onDomReady.bind(this), false);
@@ -38,11 +34,11 @@
   }
 
   Main.prototype.onMouseDown = function() {
-    PLANE_FALLING = false;
+    FlappyPlane.PLANE_FALLING = false;
   };
 
   Main.prototype.onMouseUp = function() {
-    PLANE_FALLING = true;
+    FlappyPlane.PLANE_FALLING = true;
   };
 
   Main.prototype.onDomReady = function() {
@@ -51,9 +47,10 @@
   };
 
   Main.prototype.setupCanvas = function() {
-    this.stage = FlappyPlane.stage = new PIXI.Stage(0x000000, true);
-    renderer = PIXI.autoDetectRenderer(WW, WH);
-    document.body.appendChild(renderer.view);
+    this.stage = new PIXI.Stage(0x000000, true);
+    window.sss = this.stage;
+    this.renderer = PIXI.autoDetectRenderer(WW, WH);
+    document.body.appendChild(this.renderer.view);
   };
 
   Main.prototype.loadAssets = function() { 
@@ -62,60 +59,37 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
-    Clouds = new Clouds(PIXI.Texture.fromFrame("/img/background.png"), WW, WH);
-    this.stage.addChild(Clouds);
-
-    rockDown = PIXI.Sprite.fromFrame('/img/rockSnowDown.png');
-    rockDown.position.y = -30;
-    rockDown.position.x = 300;
-    this.stage.addChild(rockDown);
-
-    rockUp = PIXI.Sprite.fromFrame('/img/rockSnow.png');
-    rockUp.position.y = WH - rockUp.height + 50;
-    rockUp.position.x = 600;
-    this.stage.addChild(rockUp);
-
-    Ground = new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png"), WW, WH);
-    this.stage.addChild(Ground);
-
-    Plane = new Plane(PIXI.Texture.fromFrame('/img/Planes/planeRed1.png'), WH);
-    this.stage.addChild(Plane);
-
-    initGameLoop();
+    this.stage.addChild(new Clouds(PIXI.Texture.fromFrame("/img/background.png"), WW, WH));
+    require('./views/rocks/list')(this.stage, WW, WH); // adding rocks
+    this.stage.addChild(new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png"), WW, WH));
+    this.stage.addChild(new Plane(PIXI.Texture.fromFrame('/img/Planes/planeRed1.png'), WH));
+    this.initGameLoop();
   };
   
-  function initGameLoop() {
-    requestAnimationFrame(initGameLoop); 
-    Clouds.tilePosition.x -= FlappyPlane.CLOUDS_SPEED;
-    Ground.tilePosition.x -= FlappyPlane.GROUND_SPEED;
-    if(PLANE_FALLING) {
-      Plane.position.y += FlappyPlane.PLANE_LANDING_SPEED;
-      if(Plane.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
-        Plane.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
-      }
-    } else {
-      Plane.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
-      if(Plane.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
-        Plane.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
-      }
-    }
-    renderer.render(FlappyPlane.stage);
-  }
+  Main.prototype.initGameLoop = function() {
+    requestAnimFrame(this.initGameLoop.bind(this)); 
+    this.stage.children.forEach(function(child) { child.update(); });
+    this.renderer.render(this.stage);
+  };
 
   module.exports = Main;
 
 })();
 
-},{"./asset_loader":1,"./views/background/clouds":4,"./views/background/ground":5,"./views/planes/main":6,"pixi.js":7}],3:[function(require,module,exports){
+},{"./asset_loader":1,"./views/background/clouds":4,"./views/background/ground":5,"./views/planes/main":6,"./views/rocks/list":8,"pixi.js":9}],3:[function(require,module,exports){
 window.FlappyPlane = {
   CLOUDS_SPEED: 2,
   GROUND_SPEED: 4,
+  ROCKS_SPEED: 3,
+  NUMBER_OF_ROCKS: 4,
+  ROCK_DISTANCE: 300,
   PLANE_TAKE_OFF_SPEED: 8,
   PLANE_LANDING_SPEED: 7,
   PLANE_ROTATE_UP_SPEED: 0.1,
   PLANE_ROTATE_DOWN_SPEED: 0.1,
   PLANE_ROTATE_DOWN_MAX: 0.5,
-  PLANE_ROTATE_UP_MAX: -0.5
+  PLANE_ROTATE_UP_MAX: -0.5,
+  PLANE_FALLING: true
 };
 
 var Engine = require('./engine');
@@ -128,21 +102,23 @@ new Engine();
   var PIXI = require('pixi.js');
 
   function Clouds(texture, width, height) {
-    PIXI.TilingSprite.call(this, texture, width, height);
-    this.position.x = 0;
-    this.position.y = 0;
-    this.tilePosition.x = 0;
-    this.tilePosition.y = 0;
+    PIXI.TilingSprite.call(this, texture);
+    this.width = width;
+    this.height = height;
   }
-  
-  Clouds.constructor = Clouds;
+
   Clouds.prototype = Object.create(PIXI.TilingSprite.prototype);
+  Clouds.constructor = Clouds;
+
+  Clouds.prototype.update = function() {
+    this.tilePosition.x -= FlappyPlane.CLOUD_SPEED;
+  };
 
   module.exports = Clouds;
 
 })();
 
-},{"pixi.js":7}],5:[function(require,module,exports){
+},{"pixi.js":9}],5:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -155,14 +131,18 @@ new Engine();
     this.position.y = height - texture.baseTexture.height + 20;
   }
 
-  Ground.constructor = Ground;
   Ground.prototype = Object.create(PIXI.TilingSprite.prototype);
+  Ground.constructor = Ground;
+
+  Ground.prototype.update = function() {
+    this.tilePosition.x -= FlappyPlane.GROUND_SPEED;
+  };
 
   module.exports = Ground;
 
 })();
 
-},{"pixi.js":7}],6:[function(require,module,exports){
+},{"pixi.js":9}],6:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -177,14 +157,82 @@ new Engine();
     this.rotation = 0.5;
   }
 
-  Plane.constructor = Plane;
   Plane.prototype = Object.create(PIXI.Sprite.prototype);
+  Plane.constructor = Plane;
+
+  Plane.prototype.update = function() {
+    if(FlappyPlane.PLANE_FALLING) {
+      this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+      if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
+        this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
+      }
+    } else {
+      this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
+      if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
+        this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
+      }
+    }
+  };
 
   module.exports = Plane;
 
 })();
 
-},{"pixi.js":7}],7:[function(require,module,exports){
+},{"pixi.js":9}],7:[function(require,module,exports){
+(function() {
+  'use strict';
+
+  var PIXI = require('pixi.js');
+
+  function Rock(texture, posX, posY) {
+    PIXI.Sprite.call(this, texture);
+    this.posX = posX;
+    this.position.x = posX;
+    this.position.y = posY;
+  }
+
+  Rock.prototype = Object.create(PIXI.Sprite.prototype);
+  Rock.constructor = Rock;
+
+  Rock.prototype.update = function() {
+    this.position.x -= FlappyPlane.ROCKS_SPEED;
+    if(this.position.x === -this.width) {
+      this.position.x = this.posX; 
+    }
+  };
+
+  module.exports = Rock;
+
+})();
+
+},{"pixi.js":9}],8:[function(require,module,exports){
+(function() {
+  'use strict';
+
+  var PIXI = require('pixi.js'),
+      Rock = require('./item');
+
+  module.exports = function(stage, stageWidth, stageHeight) {
+    var posY = null, texture = null, posX = null;
+
+    for(var i = 0, len = FlappyPlane.NUMBER_OF_ROCKS; i < len; i += 1) {
+      if(i % 2 === 0) {
+        texture = PIXI.Texture.fromFrame('/img/rockSnow.png');
+        posY = stageHeight - texture.height;  
+      } else {
+        texture = PIXI.Texture.fromFrame('/img/rockSnowDown.png');
+        posY = 0;
+      }
+      // this bullshit needs tweaking as inconsistent
+      posX = stageWidth + (len - i) * FlappyPlane.ROCK_DISTANCE;
+      stage.addChild(new Rock(texture, posX, posY));
+    }
+
+  };
+
+})();
+
+},{"./item":7,"pixi.js":9}],9:[function(require,module,exports){
 /**
  * @license
  * pixi.js - v1.5.1

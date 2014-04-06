@@ -10,8 +10,12 @@
     this.position.y = height - texture.baseTexture.height + 20;
   }
 
-  Ground.constructor = Ground;
   Ground.prototype = Object.create(PIXI.TilingSprite.prototype);
+  Ground.constructor = Ground;
+
+  Ground.prototype.update = function() {
+    this.tilePosition.x -= FlappyPlane.GROUND_SPEED;
+  };
 
   module.exports = Ground;
 
