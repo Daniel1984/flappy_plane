@@ -29,7 +29,6 @@
 
   Main.prototype.setupCanvas = function() {
     this.stage = new PIXI.Stage(0x000000, true);
-    window.sss = this.stage;
     this.renderer = PIXI.autoDetectRenderer(WW, WH);
     document.body.appendChild(this.renderer.view);
   };
@@ -42,8 +41,8 @@
   Main.prototype.onDoneLoadingAssets = function() { 
     this.stage.addChild(new Clouds(PIXI.Texture.fromFrame("/img/background.png"), WW, WH));
     require('./views/rocks/list')(this.stage, WW, WH); // adding rocks
-    this.stage.addChild(new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png"), WW, WH));
     this.stage.addChild(new Plane(PIXI.Texture.fromFrame('/img/Planes/planeRed1.png'), WH));
+    this.stage.addChild(new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png"), WW, WH));
     this.initGameLoop();
   };
   

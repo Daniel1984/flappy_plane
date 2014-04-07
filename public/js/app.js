@@ -48,7 +48,6 @@
 
   Main.prototype.setupCanvas = function() {
     this.stage = new PIXI.Stage(0x000000, true);
-    window.sss = this.stage;
     this.renderer = PIXI.autoDetectRenderer(WW, WH);
     document.body.appendChild(this.renderer.view);
   };
@@ -61,8 +60,8 @@
   Main.prototype.onDoneLoadingAssets = function() { 
     this.stage.addChild(new Clouds(PIXI.Texture.fromFrame("/img/background.png"), WW, WH));
     require('./views/rocks/list')(this.stage, WW, WH); // adding rocks
-    this.stage.addChild(new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png"), WW, WH));
     this.stage.addChild(new Plane(PIXI.Texture.fromFrame('/img/Planes/planeRed1.png'), WH));
+    this.stage.addChild(new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png"), WW, WH));
     this.initGameLoop();
   };
   
@@ -101,17 +100,15 @@ new Engine();
 
   var PIXI = require('pixi.js');
 
-  function Clouds(texture, width, height) {
-    PIXI.TilingSprite.call(this, texture);
-    this.width = width;
-    this.height = height;
+  function Clouds(texture, stageWidth, stageHeight) {
+    PIXI.TilingSprite.call(this, texture, stageWidth, stageHeight);
   }
 
   Clouds.prototype = Object.create(PIXI.TilingSprite.prototype);
   Clouds.constructor = Clouds;
 
   Clouds.prototype.update = function() {
-    this.tilePosition.x -= FlappyPlane.CLOUD_SPEED;
+    this.tilePosition.x -= FlappyPlane.CLOUDS_SPEED;
   };
 
   module.exports = Clouds;
@@ -126,9 +123,7 @@ new Engine();
 
   function Ground(texture, width, height) {
     PIXI.TilingSprite.call(this, texture, width, texture.baseTexture.height);
-    this.position.x = 0;
-    this.tilePosition.x = 0;
-    this.position.y = height - texture.baseTexture.height + 20;
+    this.position.y = height - texture.baseTexture.height;
   }
 
   Ground.prototype = Object.create(PIXI.TilingSprite.prototype);
@@ -148,10 +143,10 @@ new Engine();
 
   var PIXI = require('pixi.js');
 
-  function Plane(texture, stageHeight) {
+  function Plane(texture) {
     PIXI.Sprite.call(this, texture);
-    this.position.y = stageHeight / 2 - this.height / 2;
-    this.position.x = 100;
+    this.position.y = window.innerHeight / 2 - this.height / 2;
+    this.position.x = window.innerWidth / 2 - this.width / 2;
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
     this.rotation = 0.5;
@@ -161,15 +156,17 @@ new Engine();
   Plane.constructor = Plane;
 
   Plane.prototype.update = function() {
-    if(FlappyPlane.PLANE_FALLING) {
-      this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
-      if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
-        this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
-      }
-    } else {
-      this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
-      if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
-        this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
+    if(this.position.y < window.innerHeight) {
+      if(FlappyPlane.PLANE_FALLING) {
+        this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+        if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
+          this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
+        }
+      } else {
+        this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
+        if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
+          this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
+        }
       }
     }
   };
@@ -186,7 +183,6 @@ new Engine();
 
   function Rock(texture, posX, posY) {
     PIXI.Sprite.call(this, texture);
-    this.posX = posX;
     this.position.x = posX;
     this.position.y = posY;
   }
@@ -196,8 +192,8 @@ new Engine();
 
   Rock.prototype.update = function() {
     this.position.x -= FlappyPlane.ROCKS_SPEED;
-    if(this.position.x === -this.width) {
-      this.position.x = this.posX; 
+    if(this.position.x < -this.width) { 
+      this.position.x = FlappyPlane.NUMBER_OF_ROCKS * (FlappyPlane.ROCK_DISTANCE + this.width); 
     }
   };
 
@@ -224,7 +220,7 @@ new Engine();
         posY = 0;
       }
       // this bullshit needs tweaking as inconsistent
-      posX = stageWidth + (len - i) * FlappyPlane.ROCK_DISTANCE;
+      posX = stageWidth + (len - i) * (FlappyPlane.ROCK_DISTANCE + texture.baseTexture.width);
       stage.addChild(new Rock(texture, posX, posY));
     }
 

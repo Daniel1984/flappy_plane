@@ -16,7 +16,7 @@
         posY = 0;
       }
       // this bullshit needs tweaking as inconsistent
-      posX = stageWidth + (len - i) * FlappyPlane.ROCK_DISTANCE;
+      posX = stageWidth + (len - i) * (FlappyPlane.ROCK_DISTANCE + texture.baseTexture.width);
       stage.addChild(new Rock(texture, posX, posY));
     }
 
