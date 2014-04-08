@@ -1,0 +1,75 @@
+{
+  "frames": {
+    "app/img/PNG/Planes/planeRed1.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/Planes/planeRed2.png": {
+      "frame": {
+        "x": 88,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/Planes/planeRed3.png": {
+      "frame": {
+        "x": 0,
+        "y": 73,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "sprite_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 176,
+      "h": 146
+    },
+    "scale": 1
+  }
+}

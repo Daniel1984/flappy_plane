@@ -10,7 +10,8 @@
       '/img/rockGrass.png',
       '/img/rockSnowDown.png',
       '/img/rockSnow.png',
-      '/img/Planes/planeRed1.png'
+      '/img/Planes/planeRed1.png',
+      '/img/spritesheets/sprite_sheet.json'
       ]);
 
 })();

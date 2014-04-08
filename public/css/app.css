@@ -1,1 +1,1 @@
-html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden}@font-face{font-family:kenvectorFuture;src:url('Fonts/kenvector_future.ttf')}@font-face{font-family:kenvectorFutureThin;src:url('Fonts/kenvector_future_thin.ttf')}
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden}canvas{max-width:100%;max-height:100%;width:100%;height:100%}@font-face{font-family:kenvectorFuture;src:url('Fonts/kenvector_future.ttf')}@font-face{font-family:kenvectorFutureThin;src:url('Fonts/kenvector_future_thin.ttf')}

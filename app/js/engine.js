@@ -4,14 +4,14 @@
       AssetLoader = require('./asset_loader'),
       Clouds = require('./views/background/clouds'), 
       Ground = require('./views/background/ground'),
-      Plane = require('./views/planes/main'),
-      WH = window.innerHeight, 
-      WW = window.innerWidth;
+      Plane = require('./views/planes/main');
 
   function Main() {
+    var touchStart = 'ontouchstart' in window ? 'touchstart' : 'mousedown';
+    var touchEnd = 'ontouchend' in window ? 'touchend' : 'mouseup';
     window.addEventListener('load', this.onDomReady.bind(this), false);
-    window.addEventListener('mousedown', this.onMouseDown.bind(this), false);
-    window.addEventListener('mouseup', this.onMouseUp.bind(this), false);
+    window.addEventListener(touchStart, this.onMouseDown.bind(this), false);
+    window.addEventListener(touchEnd, this.onMouseUp.bind(this), false);
   }
 
   Main.prototype.onMouseDown = function() {
@@ -29,7 +29,7 @@
 
   Main.prototype.setupCanvas = function() {
     this.stage = new PIXI.Stage(0x000000, true);
-    this.renderer = PIXI.autoDetectRenderer(WW, WH);
+    this.renderer = PIXI.autoDetectRenderer(FlappyPlane.GAME_WIDTH, FlappyPlane.GAME_HEIGHT);
     document.body.appendChild(this.renderer.view);
   };
 
@@ -39,10 +39,10 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
-    this.stage.addChild(new Clouds(PIXI.Texture.fromFrame("/img/background.png"), WW, WH));
-    require('./views/rocks/list')(this.stage, WW, WH); // adding rocks
-    this.stage.addChild(new Plane(PIXI.Texture.fromFrame('/img/Planes/planeRed1.png'), WH));
-    this.stage.addChild(new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png"), WW, WH));
+    this.stage.addChild(new Clouds(PIXI.Texture.fromFrame("/img/background.png")));
+    this.stage.addChild(new Plane());
+    require('./views/rocks/list')(this.stage); // adding rocks
+    this.stage.addChild(new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png")));
     this.initGameLoop();
   };
   
