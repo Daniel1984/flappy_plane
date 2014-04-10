@@ -5,3 +5,5 @@
 5) run gulp watch so js is compiled on each save
 
 If adding new file, gulp fails to detect its changes so Ctrl + c to stop gulp from watching fs and run gulp watch again
+
+use pm run <task name> from Projfile to generate spritesheet with .json
