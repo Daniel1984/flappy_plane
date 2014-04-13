@@ -5,7 +5,10 @@
       Rock = require('./item');
 
   module.exports = function(stage) {
-    var yPlacement = null, texture = null, posX = null;
+    var yPlacement = null,
+        texture = null,
+        posX = null,
+        rock = null;
 
     for(var i = 0, len = FlappyPlane.NUMBER_OF_ROCKS; i < len; i += 1) {
       if(i % 2 === 0) {
@@ -16,7 +19,9 @@
         yPlacement = 'top';
       }
       posX = FlappyPlane.GAME_WIDTH + (len - i) * (FlappyPlane.ROCK_DISTANCE + texture.baseTexture.width);
-      stage.addChild(new Rock(texture, posX, yPlacement));
+      rock = new Rock(texture, posX, yPlacement);
+      FlappyPlane.PLANE_OBSTICLES.push(rock);
+      stage.addChild(rock);
     }
 
   };

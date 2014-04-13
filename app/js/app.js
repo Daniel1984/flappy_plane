@@ -13,7 +13,8 @@ window.FlappyPlane = {
   PLANE_ROTATE_DOWN_SPEED: 0.2,
   PLANE_ROTATE_DOWN_MAX: 0.7,
   PLANE_ROTATE_UP_MAX: -0.3,
-  PLANE_FALLING: true
+  PLANE_FALLING: true,
+  PLANE_OBSTICLES: []
 };
 
 var Engine = require('./engine');

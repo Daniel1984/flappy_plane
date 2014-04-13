@@ -22,21 +22,50 @@
   Plane.constructor = Plane;
 
   Plane.prototype.update = function() {
-    if(this.position.y < FlappyPlane.GAME_HEIGHT) {
-      if(FlappyPlane.PLANE_FALLING) {
-        this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
-        if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
-          this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
+    this.controlPlane();
+    this.detectRockCollision();
+  };
+
+  Plane.prototype.controlPlane = function() {
+    if(!FlappyPlane.GAME_OVER) {
+      if(this.position.y < FlappyPlane.GAME_HEIGHT) {
+        if(FlappyPlane.PLANE_FALLING) {
+          this.dropDown();
+        } else {
+          this.liftUp();
         }
       } else {
-        this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
-        if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
-          this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
+        FlappyPlane.GAME_OVER = true;
+        this.gotoAndStop(0);
+      }
+    }
+  };
+
+  Plane.prototype.dropDown = function() {
+    this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+    if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
+      this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
+    }
+  };
+
+  Plane.prototype.liftUp = function() {
+    this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
+    if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
+      this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
+    }
+  };
+
+  Plane.prototype.detectRockCollision = function() {
+    var posX = this.position.x;
+    var posY = this.position.y;
+    FlappyPlane.PLANE_OBSTICLES.forEach(function(obsticle) {  
+      if(posX > obsticle.position.x && posX < obsticle.position.x + obsticle.width) {
+        if(posY > obsticle.position.y && posY < obsticle.position.y + obsticle.height) {
+          FlappyPlane.GAME_OVER = true;
+          this.gotoAndStop(0);
         }
       }
-    } else {
-      FlappyPlane.GAME_OVER = true;
-    }
+    });
   };
 
   module.exports = Plane;

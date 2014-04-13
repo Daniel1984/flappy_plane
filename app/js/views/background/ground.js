@@ -12,7 +12,9 @@
   Ground.constructor = Ground;
 
   Ground.prototype.update = function() {
-    this.tilePosition.x -= FlappyPlane.GROUND_SPEED;
+    if(!FlappyPlane.GAME_OVER) {
+      this.tilePosition.x -= FlappyPlane.GROUND_SPEED;
+    }
   };
 
   module.exports = Ground;
