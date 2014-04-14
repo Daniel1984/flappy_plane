@@ -59,11 +59,12 @@
   Plane.prototype.detectRockCollision = function() {
     var posX = this.position.x;
     var posY = this.position.y;
+    var _this = this;
     FlappyPlane.PLANE_OBSTICLES.forEach(function(obsticle) {  
       if(posX > obsticle.position.x && posX < obsticle.position.x + obsticle.width) {
         if(posY > obsticle.position.y && posY < obsticle.position.y + obsticle.height) {
           FlappyPlane.GAME_OVER = true;
-          this.gotoAndStop(0);
+          _this.gotoAndStop(0);
         }
       }
     });
