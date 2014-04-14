@@ -14,7 +14,10 @@ window.FlappyPlane = {
   PLANE_ROTATE_DOWN_MAX: 0.7,
   PLANE_ROTATE_UP_MAX: -0.3,
   PLANE_FALLING: true,
-  PLANE_OBSTICLES: []
+  PLANE_OBSTICLES: [],
+  DEFAULT_PLANE: 'Yellow',
+  AWAILABLE_PLANES: ['Yellow', 'Green', 'Blue', 'Red'],
+  TEXTURE_PATH: 'app/img/PNG/spritesheets/'
 };
 
 var Engine = require('./engine');

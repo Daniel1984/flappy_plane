@@ -29,7 +29,7 @@
 
   Main.prototype.setupCanvas = function() {
     this.stage = new PIXI.Stage(0x000000, true);
-    this.renderer = PIXI.autoDetectRenderer(FlappyPlane.GAME_WIDTH, FlappyPlane.GAME_HEIGHT);
+    this.renderer = PIXI.autoDetectRenderer(FlappyPlane.GAME_WIDTH, FlappyPlane.GAME_HEIGHT, null, false, true);
     document.body.appendChild(this.renderer.view);
   };
 
@@ -39,10 +39,10 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
-    this.stage.addChild(new Clouds(PIXI.Texture.fromFrame("/img/background.png")));
+    this.stage.addChild(new Clouds());
     this.stage.addChild(new Plane());
     require('./views/rocks/list')(this.stage); // adding rocks
-    this.stage.addChild(new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png")));
+    this.stage.addChild(new Ground());
     this.initGameLoop();
   };
   

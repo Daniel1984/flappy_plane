@@ -6,7 +6,8 @@
   function Plane() {
     var planeTextures = [];
     for(var i=0; i < 3; i++) {
-      var texture = PIXI.Texture.fromFrame('app/img/PNG/Planes/planeRed' + (i+1) + '.png');
+      var texturePath = FlappyPlane.TEXTURE_PATH + 'plane' + FlappyPlane.DEFAULT_PLANE; 
+      var texture = PIXI.Texture.fromFrame(texturePath + (i+1) + '.png');
       planeTextures.push(texture);
     }
     PIXI.MovieClip.call(this, planeTextures);

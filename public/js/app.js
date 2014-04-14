@@ -5,13 +5,9 @@
   var PIXI = require('pixi.js');
   
   module.exports = new  PIXI.AssetLoader([
-      '/img/background.png', 
-      '/img/groundGrass.png',
-      '/img/rockGrassDown.png',
-      '/img/rockGrass.png',
-      '/img/rockSnowDown.png',
-      '/img/rockSnow.png',
-      '/img/Planes/planeRed1.png',
+     // '/img/spritesheets/planes_sheet.json',
+     // '/img/spritesheets/ui_sheet.json',
+     // '/img/spritesheets/landscape_sheet.json'
       '/img/spritesheets/sprite_sheet.json'
       ]);
 
@@ -49,7 +45,7 @@
 
   Main.prototype.setupCanvas = function() {
     this.stage = new PIXI.Stage(0x000000, true);
-    this.renderer = PIXI.autoDetectRenderer(FlappyPlane.GAME_WIDTH, FlappyPlane.GAME_HEIGHT);
+    this.renderer = PIXI.autoDetectRenderer(FlappyPlane.GAME_WIDTH, FlappyPlane.GAME_HEIGHT, null, false, true);
     document.body.appendChild(this.renderer.view);
   };
 
@@ -59,10 +55,10 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
-    this.stage.addChild(new Clouds(PIXI.Texture.fromFrame("/img/background.png")));
+    this.stage.addChild(new Clouds());
     this.stage.addChild(new Plane());
     require('./views/rocks/list')(this.stage); // adding rocks
-    this.stage.addChild(new Ground(PIXI.Texture.fromFrame("/img/groundGrass.png")));
+    this.stage.addChild(new Ground());
     this.initGameLoop();
   };
   
@@ -93,7 +89,10 @@ window.FlappyPlane = {
   PLANE_ROTATE_DOWN_MAX: 0.7,
   PLANE_ROTATE_UP_MAX: -0.3,
   PLANE_FALLING: true,
-  PLANE_OBSTICLES: []
+  PLANE_OBSTICLES: [],
+  DEFAULT_PLANE: 'Yellow',
+  AWAILABLE_PLANES: ['Yellow', 'Green', 'Blue', 'Red'],
+  TEXTURE_PATH: 'app/img/PNG/spritesheets/'
 };
 
 var Engine = require('./engine');
@@ -105,7 +104,8 @@ new Engine();
 
   var PIXI = require('pixi.js');
 
-  function Clouds(texture) {
+  function Clouds() {
+    var texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + "background.png");
     PIXI.TilingSprite.call(this, texture);
     this.width = FlappyPlane.GAME_WIDTH;
     this.height = FlappyPlane.GAME_HEIGHT;
@@ -137,9 +137,10 @@ new Engine();
 
   var PIXI = require('pixi.js');
 
-  function Ground(texture) {
-    PIXI.TilingSprite.call(this, texture, FlappyPlane.GAME_WIDTH, texture.baseTexture.height);
-    this.position.y = FlappyPlane.GAME_HEIGHT - texture.baseTexture.height;
+  function Ground() {
+    var texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + "groundGrass.png");
+    PIXI.TilingSprite.call(this, texture, FlappyPlane.GAME_WIDTH, texture.height);
+    this.position.y = FlappyPlane.GAME_HEIGHT - texture.height;
   }
 
   Ground.prototype = Object.create(PIXI.TilingSprite.prototype);
@@ -164,7 +165,8 @@ new Engine();
   function Plane() {
     var planeTextures = [];
     for(var i=0; i < 3; i++) {
-      var texture = PIXI.Texture.fromFrame('app/img/PNG/Planes/planeRed' + (i+1) + '.png');
+      var texturePath = FlappyPlane.TEXTURE_PATH + 'plane' + FlappyPlane.DEFAULT_PLANE; 
+      var texture = PIXI.Texture.fromFrame(texturePath + (i+1) + '.png');
       planeTextures.push(texture);
     }
     PIXI.MovieClip.call(this, planeTextures);
@@ -275,13 +277,13 @@ new Engine();
 
     for(var i = 0, len = FlappyPlane.NUMBER_OF_ROCKS; i < len; i += 1) {
       if(i % 2 === 0) {
-        texture = PIXI.Texture.fromFrame('/img/rockSnow.png');
+        texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + 'rockSnow.png');
         yPlacement = 'bottom';
       } else {
-        texture = PIXI.Texture.fromFrame('/img/rockSnowDown.png');
+        texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + 'rockSnowDown.png');
         yPlacement = 'top';
       }
-      posX = FlappyPlane.GAME_WIDTH + (len - i) * (FlappyPlane.ROCK_DISTANCE + texture.baseTexture.width);
+      posX = FlappyPlane.GAME_WIDTH + (len - i) * (FlappyPlane.ROCK_DISTANCE + texture.width);
       rock = new Rock(texture, posX, yPlacement);
       FlappyPlane.PLANE_OBSTICLES.push(rock);
       stage.addChild(rock);
