@@ -10,7 +10,7 @@
   }
 
   Ground.prototype = Object.create(PIXI.TilingSprite.prototype);
-  Ground.constructor = Ground;
+  Ground.prototype.constructor = Ground;
 
   Ground.prototype.update = function() {
     if(!FlappyPlane.GAME_OVER) {

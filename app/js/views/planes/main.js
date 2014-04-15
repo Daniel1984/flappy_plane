@@ -16,11 +16,10 @@
     this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
-    this.rotation = 0.5;
   }
 
   Plane.prototype = Object.create(PIXI.MovieClip.prototype);
-  Plane.constructor = Plane;
+  Plane.prototype.constructor = Plane;
 
   Plane.prototype.update = function() {
     this.controlPlane();

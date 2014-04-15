@@ -1,7 +1,7 @@
 window.FlappyPlane = {
   GAME_WIDTH: window.innerWidth,
   GAME_HEIGHT: window.innerHeight,
-  GAME_OVER: false,
+  GAME_OVER: true,
   CLOUDS_SPEED: 2,
   GROUND_SPEED: 6,
   ROCKS_SPEED: 5,

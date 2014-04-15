@@ -12,7 +12,7 @@
  }
 
   Rock.prototype = Object.create(PIXI.Sprite.prototype);
-  Rock.constructor = Rock;
+  Rock.prototype.constructor = Rock;
 
   Rock.prototype.update = function() {
     if(!FlappyPlane.GAME_OVER) {

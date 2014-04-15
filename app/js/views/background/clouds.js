@@ -12,7 +12,7 @@
   }
 
   Clouds.prototype = Object.create(PIXI.TilingSprite.prototype);
-  Clouds.constructor = Clouds;
+  Clouds.prototype.constructor = Clouds;
 
   Clouds.prototype.scaleToFitScreen = function() {
     if(FlappyPlane.GAME_HEIGHT > this.texture.height) {

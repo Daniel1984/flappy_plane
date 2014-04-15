@@ -4,6 +4,7 @@
       AssetLoader = require('./asset_loader'),
       Clouds = require('./views/background/clouds'), 
       Ground = require('./views/background/ground'),
+      StartGameScreen = require('./views/game_start_scene/main'),
       Plane = require('./views/planes/main');
 
   function Main() {
@@ -43,6 +44,7 @@
     this.stage.addChild(new Plane());
     require('./views/rocks/list')(this.stage); // adding rocks
     this.stage.addChild(new Ground());
+    this.stage.addChild(new StartGameScreen());
     this.initGameLoop();
   };
   
