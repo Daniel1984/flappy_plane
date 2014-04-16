@@ -22,22 +22,21 @@
   Plane.prototype.constructor = Plane;
 
   Plane.prototype.update = function() {
-    this.controlPlane();
-    this.detectRockCollision();
+    if(!FlappyPlane.GAME_OVER) {
+      this.controlPlane();
+      this.detectRockCollision();
+    }
   };
 
   Plane.prototype.controlPlane = function() {
-    if(!FlappyPlane.GAME_OVER) {
-      if(this.position.y < FlappyPlane.GAME_HEIGHT) {
-        if(FlappyPlane.PLANE_FALLING) {
-          this.dropDown();
-        } else {
-          this.liftUp();
-        }
+    if(this.position.y < FlappyPlane.GAME_HEIGHT) {
+      if(FlappyPlane.PLANE_FALLING) {
+        this.dropDown();
       } else {
-        FlappyPlane.GAME_OVER = true;
-        this.gotoAndStop(0);
+        this.liftUp();
       }
+    } else {
+      this.triggerGameOver();
     }
   };
 
@@ -62,11 +61,15 @@
     FlappyPlane.PLANE_OBSTICLES.forEach(function(obsticle) {  
       if(posX > obsticle.position.x && posX < obsticle.position.x + obsticle.width) {
         if(posY > obsticle.position.y && posY < obsticle.position.y + obsticle.height) {
-          FlappyPlane.GAME_OVER = true;
-          _this.gotoAndStop(0);
+          _this.triggerGameOver();
         }
       }
     });
+  };
+
+  Plane.prototype.triggerGameOver = function() {
+    FlappyPlane.GAME_OVER = true;
+    this.parent.showGameOver();
   };
 
   module.exports = Plane;

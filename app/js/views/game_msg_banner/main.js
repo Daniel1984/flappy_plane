@@ -3,8 +3,8 @@
 
   var PIXI = require('pixi.js');
 
-  function GetReadyBanner() {
-    this.texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + "textGetReady.png");
+  function GetReadyBanner(msg) {
+    this.texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + msg + '.png');
     PIXI.Sprite.call(this, this.texture);
     this.setupDimention();
   }

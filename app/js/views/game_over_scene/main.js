@@ -2,7 +2,7 @@
   'use strict';
 
   var PIXI = require('pixi.js'),
-      BackDrop = require('../backdrop/main'),
+      Backdrop = require('../backdrop/main'),
       MessageBanner = require('../game_msg_banner/main'),
       TappingFinger = require('../tapping_finger/main'),
       TapLabel = require('../tap_label/main');
@@ -20,23 +20,27 @@
 
   Main.prototype.setupInteractivity = function() {
     this.setInteractive(true);
-    this.mousedown = this.touchstart = this.beginGame;
+    this.mousedown = this.touchstart = this.notifyParentToRestart;
     this.hitArea = new PIXI.Rectangle(0, 0, this.width, this.height);
   };
-  
+
+  Main.prototype.notifyParentToRestart = function() {
+    this.parent.restartGame();
+  };
+
   Main.prototype.addElements = function() {
     this.addBackdrop();
-    this.addGetReadyBanner();
+    this.addGameOverBanner();
     this.addTappingFinger();
     this.addTapLabel();
   };
-  
+
   Main.prototype.addBackdrop = function() {
-    this.addChild(new BackDrop(0x000000, 0.8));
+    this.addChild(new Backdrop(0x000000, 0.8));
   };
 
-  Main.prototype.addGetReadyBanner = function() {
-    this.addChild(new MessageBanner('textGetReady'));
+  Main.prototype.addGameOverBanner = function() {
+    this.addChild(new MessageBanner('textGameOver'));
   };
 
   Main.prototype.addTappingFinger = function() {
@@ -47,13 +51,8 @@
     this.addChild(new TapLabel('tapRight'));
   };
 
-  Main.prototype.beginGame = function(e) {
-    this.parent.removeChild(this);
-    FlappyPlane.GAME_OVER = false;
-  };
-
   Main.prototype.update = function() {};
 
-  module.exports = Main; 
+  module.exports = Main;
 
 })();

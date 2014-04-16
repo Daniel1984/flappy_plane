@@ -4,32 +4,31 @@
       AssetLoader = require('./asset_loader'),
       Clouds = require('./views/background/clouds'), 
       Ground = require('./views/background/ground'),
-      StartGameScreen = require('./views/game_start_scene/main'),
+      StartGameScene = require('./views/game_start_scene/main'),
+      GameOverScene = require('./views/game_over_scene/main'),
       Plane = require('./views/planes/main');
 
   function Main() {
-    var touchStart = 'ontouchstart' in window ? 'touchstart' : 'mousedown';
-    var touchEnd = 'ontouchend' in window ? 'touchend' : 'mouseup';
-    window.addEventListener('load', this.onDomReady.bind(this), false);
-    window.addEventListener(touchStart, this.onMouseDown.bind(this), false);
-    window.addEventListener(touchEnd, this.onMouseUp.bind(this), false);
+    PIXI.Stage.call(this, 0x000000, true);
+    this.mousedown = this.touchstart = this.onScreenTouch;
+    this.mouseup = this.touchend = this.onScreenTouchEnd;
+    this.setupCanvas();
+    this.loadAssets();
+    this.initGameLoop();
   }
 
-  Main.prototype.onMouseDown = function() {
+  Main.prototype = Object.create(PIXI.Stage.prototype);
+  Main.prototype.constructor = Main;
+
+  Main.prototype.onScreenTouch = function() {
     FlappyPlane.PLANE_FALLING = false;
   };
 
-  Main.prototype.onMouseUp = function() {
+  Main.prototype.onScreenTouchEnd = function() {
     FlappyPlane.PLANE_FALLING = true;
   };
 
-  Main.prototype.onDomReady = function() {
-    this.setupCanvas();
-    this.loadAssets();
-  };
-
   Main.prototype.setupCanvas = function() {
-    this.stage = new PIXI.Stage(0x000000, true);
     this.renderer = PIXI.autoDetectRenderer(FlappyPlane.GAME_WIDTH, FlappyPlane.GAME_HEIGHT, null, false, true);
     document.body.appendChild(this.renderer.view);
   };
@@ -39,19 +38,28 @@
     AssetLoader.load();
   };
 
+  Main.prototype.showGameOver = function() {
+    this.addChild(new GameOverScene());
+  };
+
+  Main.prototype.restartGame = function() {
+    FlappyPlane.PLANE_OBSTICLES = [];
+    this.children = [];
+    this.onDoneLoadingAssets();
+  };
+
   Main.prototype.onDoneLoadingAssets = function() { 
-    this.stage.addChild(new Clouds());
-    this.stage.addChild(new Plane());
-    require('./views/rocks/list')(this.stage); // adding rocks
-    this.stage.addChild(new Ground());
-    this.stage.addChild(new StartGameScreen());
-    this.initGameLoop();
+    this.addChild(new Clouds());
+    this.addChild(new Plane());
+    require('./views/rocks/list')(this); // adding rocks
+    this.addChild(new Ground());
+    this.addChild(new StartGameScene());
   };
   
   Main.prototype.initGameLoop = function() {
-    requestAnimFrame(this.initGameLoop.bind(this)); 
-    this.stage.children.forEach(function(child) { child.update(); });
-    this.renderer.render(this.stage);
+    requestAnimFrame(this.initGameLoop.bind(this));
+    this.children.forEach(function(child) { child.update(); });
+    this.renderer.render(this);
   };
 
   module.exports = Main;

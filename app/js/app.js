@@ -21,4 +21,9 @@ window.FlappyPlane = {
 };
 
 var Engine = require('./engine');
-new Engine();
+
+window.addEventListener('load', function() {
+  new Engine();
+}, false);
+
+

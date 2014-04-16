@@ -1,0 +1,875 @@
+{
+  "frames": {
+    "app/img/PNG/spritesheets/groundDirt.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/PNG/spritesheets/groundGrass.png": {
+      "frame": {
+        "x": 0,
+        "y": 71,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/PNG/spritesheets/groundIce.png": {
+      "frame": {
+        "x": 0,
+        "y": 142,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/PNG/spritesheets/groundRock.png": {
+      "frame": {
+        "x": 0,
+        "y": 213,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/PNG/spritesheets/groundSnow.png": {
+      "frame": {
+        "x": 0,
+        "y": 284,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/PNG/spritesheets/background.png": {
+      "frame": {
+        "x": 0,
+        "y": 355,
+        "w": 800,
+        "h": 480
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 800,
+        "h": 480
+      },
+      "sourceSize": {
+        "w": 800,
+        "h": 480
+      }
+    },
+    "app/img/PNG/spritesheets/textGameOver.png": {
+      "frame": {
+        "x": 809,
+        "y": 0,
+        "w": 412,
+        "h": 78
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 412,
+        "h": 78
+      }
+    },
+    "app/img/PNG/spritesheets/textGetReady.png": {
+      "frame": {
+        "x": 809,
+        "y": 77,
+        "w": 400,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 400,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 400,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/UIbg.png": {
+      "frame": {
+        "x": 808,
+        "y": 151,
+        "w": 264,
+        "h": 264
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 264
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      }
+    },
+    "app/img/PNG/spritesheets/rock.png": {
+      "frame": {
+        "x": 1072,
+        "y": 151,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/PNG/spritesheets/rockDown.png": {
+      "frame": {
+        "x": 808,
+        "y": 415,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/PNG/spritesheets/rockGrass.png": {
+      "frame": {
+        "x": 916,
+        "y": 415,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/PNG/spritesheets/rockGrassDown.png": {
+      "frame": {
+        "x": 1024,
+        "y": 415,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/PNG/spritesheets/rockIce.png": {
+      "frame": {
+        "x": 0,
+        "y": 835,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/PNG/spritesheets/rockIceDown.png": {
+      "frame": {
+        "x": 108,
+        "y": 835,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/PNG/spritesheets/rockSnow.png": {
+      "frame": {
+        "x": 216,
+        "y": 835,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/PNG/spritesheets/rockSnowDown.png": {
+      "frame": {
+        "x": 324,
+        "y": 835,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/PNG/spritesheets/buttonLarge.png": {
+      "frame": {
+        "x": 808,
+        "y": 654,
+        "w": 196,
+        "h": 70
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 196,
+        "h": 70
+      },
+      "sourceSize": {
+        "w": 196,
+        "h": 70
+      }
+    },
+    "app/img/PNG/spritesheets/buttonSmall.png": {
+      "frame": {
+        "x": 808,
+        "y": 724,
+        "w": 136,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 136,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 136,
+        "h": 80
+      }
+    },
+    "app/img/PNG/spritesheets/medalBronze.png": {
+      "frame": {
+        "x": 432,
+        "y": 835,
+        "w": 114,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 114,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 114,
+        "h": 119
+      }
+    },
+    "app/img/PNG/spritesheets/medalGold.png": {
+      "frame": {
+        "x": 546,
+        "y": 835,
+        "w": 114,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 114,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 114,
+        "h": 119
+      }
+    },
+    "app/img/PNG/spritesheets/medalSilver.png": {
+      "frame": {
+        "x": 660,
+        "y": 835,
+        "w": 114,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 114,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 114,
+        "h": 119
+      }
+    },
+    "app/img/PNG/spritesheets/planeBlue1.png": {
+      "frame": {
+        "x": 1132,
+        "y": 415,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeBlue2.png": {
+      "frame": {
+        "x": 1132,
+        "y": 488,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeBlue3.png": {
+      "frame": {
+        "x": 1132,
+        "y": 561,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeGreen1.png": {
+      "frame": {
+        "x": 944,
+        "y": 724,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeGreen2.png": {
+      "frame": {
+        "x": 1032,
+        "y": 724,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeGreen3.png": {
+      "frame": {
+        "x": 1120,
+        "y": 724,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeRed1.png": {
+      "frame": {
+        "x": 774,
+        "y": 835,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeRed2.png": {
+      "frame": {
+        "x": 862,
+        "y": 835,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeRed3.png": {
+      "frame": {
+        "x": 950,
+        "y": 835,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeYellow1.png": {
+      "frame": {
+        "x": 1038,
+        "y": 835,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeYellow2.png": {
+      "frame": {
+        "x": 1126,
+        "y": 835,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/planeYellow3.png": {
+      "frame": {
+        "x": 432,
+        "y": 954,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/PNG/spritesheets/tapLeft.png": {
+      "frame": {
+        "x": 1004,
+        "y": 654,
+        "w": 85,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 85,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 85,
+        "h": 42
+      }
+    },
+    "app/img/PNG/spritesheets/tapRight.png": {
+      "frame": {
+        "x": 1089,
+        "y": 654,
+        "w": 85,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 85,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 85,
+        "h": 42
+      }
+    },
+    "app/img/PNG/spritesheets/tap.png": {
+      "frame": {
+        "x": 520,
+        "y": 954,
+        "w": 59,
+        "h": 59
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 59,
+        "h": 59
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      }
+    },
+    "app/img/PNG/spritesheets/tapTick.png": {
+      "frame": {
+        "x": 579,
+        "y": 954,
+        "w": 59,
+        "h": 59
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 59,
+        "h": 59
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      }
+    },
+    "app/img/PNG/spritesheets/puffLarge.png": {
+      "frame": {
+        "x": 1174,
+        "y": 654,
+        "w": 42,
+        "h": 35
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 42,
+        "h": 35
+      },
+      "sourceSize": {
+        "w": 42,
+        "h": 35
+      }
+    },
+    "app/img/PNG/spritesheets/starBronze.png": {
+      "frame": {
+        "x": 1180,
+        "y": 151,
+        "w": 39,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 39,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 38
+      }
+    },
+    "app/img/PNG/spritesheets/starGold.png": {
+      "frame": {
+        "x": 1180,
+        "y": 189,
+        "w": 39,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 39,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 38
+      }
+    },
+    "app/img/PNG/spritesheets/starSilver.png": {
+      "frame": {
+        "x": 1180,
+        "y": 227,
+        "w": 39,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 39,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 38
+      }
+    },
+    "app/img/PNG/spritesheets/puffSmall.png": {
+      "frame": {
+        "x": 1180,
+        "y": 265,
+        "w": 25,
+        "h": 21
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 25,
+        "h": 21
+      },
+      "sourceSize": {
+        "w": 25,
+        "h": 21
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "sprite_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1230,
+      "h": 1080	
+    },
+    "scale": 1
+  }
+}

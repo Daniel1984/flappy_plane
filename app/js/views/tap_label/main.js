@@ -3,8 +3,8 @@
 
   var PIXI = require('pixi.js');
 
-  function TapRightLabel() {
-    this.texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + 'tapRight.png'); 
+  function TapRightLabel(tapType) {
+    this.texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + tapType + '.png'); 
     PIXI.Sprite.call(this, this.texture);
     this.setupDimention();
   }
