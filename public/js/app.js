@@ -10,13 +10,14 @@
 
 })();
 
-},{"pixi.js":15}],2:[function(require,module,exports){
+},{"pixi.js":17}],2:[function(require,module,exports){
 (function() {
   
   var PIXI = require('pixi.js'),
       AssetLoader = require('./asset_loader'),
       Clouds = require('./views/background/clouds'), 
       Ground = require('./views/background/ground'),
+      Puffs = require('./views/puffs/puff_manager'),
       StartGameScene = require('./views/game_start_scene/main'),
       GameOverScene = require('./views/game_over_scene/main'),
       Plane = require('./views/planes/main');
@@ -24,7 +25,6 @@
   function Main() {
     PIXI.Stage.call(this, 0x000000, true);
     this.mousedown = this.touchstart = this.onScreenTouch;
-    this.mouseup = this.touchend = this.onScreenTouchEnd;
     this.setupCanvas();
     this.loadAssets();
     this.initGameLoop();
@@ -35,10 +35,6 @@
 
   Main.prototype.onScreenTouch = function() {
     FlappyPlane.PLANE_FALLING = false;
-  };
-
-  Main.prototype.onScreenTouchEnd = function() {
-    FlappyPlane.PLANE_FALLING = true;
   };
 
   Main.prototype.setupCanvas = function() {
@@ -62,11 +58,13 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
+    var plane = new Plane();
     this.addChild(new Clouds());
-    this.addChild(new Plane());
+    this.addChild(plane);
+    this.addChild(new Puffs(plane));
     require('./views/rocks/list')(this); // adding rocks
     this.addChild(new Ground());
-    this.addChild(new StartGameScene());
+    this.addChild(new StartGameScene()); 
   };
   
   Main.prototype.initGameLoop = function() {
@@ -79,7 +77,7 @@
 
 })();
 
-},{"./asset_loader":1,"./views/background/clouds":5,"./views/background/ground":6,"./views/game_over_scene/main":8,"./views/game_start_scene/main":9,"./views/planes/main":10,"./views/rocks/list":12,"pixi.js":15}],3:[function(require,module,exports){
+},{"./asset_loader":1,"./views/background/clouds":5,"./views/background/ground":6,"./views/game_over_scene/main":8,"./views/game_start_scene/main":9,"./views/planes/main":10,"./views/puffs/puff_manager":12,"./views/rocks/list":14,"pixi.js":17}],3:[function(require,module,exports){
 window.FlappyPlane = {
   GAME_WIDTH: window.innerWidth,
   GAME_HEIGHT: window.innerHeight,
@@ -88,14 +86,12 @@ window.FlappyPlane = {
   GROUND_SPEED: 6,
   ROCKS_SPEED: 5,
   NUMBER_OF_ROCKS: 4,
-  ROCK_DISTANCE: 300,
-  PLANE_TAKE_OFF_SPEED: 5,
-  PLANE_LANDING_SPEED: 7,
-  PLANE_ROTATE_UP_SPEED: 0.3,
-  PLANE_ROTATE_DOWN_SPEED: 0.2,
-  PLANE_ROTATE_DOWN_MAX: 0.7,
-  PLANE_ROTATE_UP_MAX: -0.3,
+  ROCK_DISTANCE: Math.floor(window.innerWidth / 4),
+  VERTICAL_GAP_BETWEEN_ROCKS: 50,
+  PLANE_TAKE_OFF_SPEED: 8,
+  PLANE_LANDING_SPEED: 5,
   PLANE_FALLING: true,
+  PLANE_MAX_LIFT: 110,
   PLANE_OBSTICLES: [],
   DEFAULT_PLANE: 'Yellow',
   AWAILABLE_PLANES: ['Yellow', 'Green', 'Blue', 'Red'],
@@ -132,7 +128,7 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"pixi.js":15}],5:[function(require,module,exports){
+},{"pixi.js":17}],5:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -165,7 +161,7 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"pixi.js":15}],6:[function(require,module,exports){
+},{"pixi.js":17}],6:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -190,7 +186,7 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"pixi.js":15}],7:[function(require,module,exports){
+},{"pixi.js":17}],7:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -222,7 +218,7 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"pixi.js":15}],8:[function(require,module,exports){
+},{"pixi.js":17}],8:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -282,7 +278,7 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"../backdrop/main":4,"../game_msg_banner/main":7,"../tap_label/main":13,"../tapping_finger/main":14,"pixi.js":15}],9:[function(require,module,exports){
+},{"../backdrop/main":4,"../game_msg_banner/main":7,"../tap_label/main":15,"../tapping_finger/main":16,"pixi.js":17}],9:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -343,7 +339,7 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"../backdrop/main":4,"../game_msg_banner/main":7,"../tap_label/main":13,"../tapping_finger/main":14,"pixi.js":15}],10:[function(require,module,exports){
+},{"../backdrop/main":4,"../game_msg_banner/main":7,"../tap_label/main":15,"../tapping_finger/main":16,"pixi.js":17}],10:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -362,12 +358,14 @@ window.addEventListener('load', function() {
     this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
+    this.liftedSinceTap = 0;
   }
 
   Plane.prototype = Object.create(PIXI.MovieClip.prototype);
   Plane.prototype.constructor = Plane;
 
   Plane.prototype.update = function() {
+    this.children.forEach(function(child) { child.update(); });
     if(!FlappyPlane.GAME_OVER) {
       this.controlPlane();
       this.detectRockCollision();
@@ -376,27 +374,29 @@ window.addEventListener('load', function() {
 
   Plane.prototype.controlPlane = function() {
     if(this.position.y < FlappyPlane.GAME_HEIGHT) {
-      if(FlappyPlane.PLANE_FALLING) {
-        this.dropDown();
-      } else {
-        this.liftUp();
-      }
+      this.levitatePlane();
     } else {
       this.triggerGameOver();
     }
   };
 
-  Plane.prototype.dropDown = function() {
-    this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
-    if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
-      this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
+  Plane.prototype.levitatePlane = function() {
+    if(FlappyPlane.PLANE_FALLING) {
+      this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+    } else {
+      this.liftedSinceTap += FlappyPlane.PLANE_TAKE_OFF_SPEED;
+      if(this.liftedSinceTap < FlappyPlane.PLANE_MAX_LIFT) {
+        this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
+      } else { 
+        FlappyPlane.PLANE_FALLING = true;
+        this.liftedSinceTap = 0;
+      }
     }
   };
 
-  Plane.prototype.liftUp = function() {
-    this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
-    if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
-      this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
+  Plane.prototype.rotateDown = function() {
+    if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
+      this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
     }
   };
 
@@ -422,7 +422,81 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"pixi.js":15}],11:[function(require,module,exports){
+},{"pixi.js":17}],11:[function(require,module,exports){
+(function() {
+  'use strict';
+  
+  var PIXI = require('pixi.js');
+
+  function Main(puffName) {
+    var texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + puffName + '.png'); 
+    PIXI.Sprite.call(this, texture);
+    this.width = texture.width;
+    this.height = texture.height;
+    this.alpha = 1;
+    this.anchor.x = 0;
+    this.anchor.y = 0;
+  }
+
+  Main.prototype = Object.create(PIXI.Sprite.prototype);
+  Main.prototype.constructor = Main;
+
+  Main.prototype.update = function() {
+    if(this.alpha <= 0) {
+      this.parent.removeChild(this);
+    } else {
+      this.alpha -= 0.01;
+      this.scale.x += 0.02;
+      this.scale.y += 0.02;
+      this.position.x -= FlappyPlane.ROCKS_SPEED;
+    }
+  };
+
+  module.exports = Main;
+
+})();
+
+},{"pixi.js":17}],12:[function(require,module,exports){
+(function() {
+  'use strict';
+
+  var PIXI = require('pixi.js'),
+      Puff = require('./main');
+
+  function Main(planeRef) {
+    PIXI.DisplayObjectContainer.call(this);
+    this.width = FlappyPlane.GAME_WIDTH;
+    this.height = FlappyPlane.GAME_HEIGHT;
+    this.plane = planeRef;
+    this.puffCounter = 0;
+  }
+
+  Main.prototype = Object.create(PIXI.DisplayObjectContainer.prototype);
+  Main.prototype.constructor = Main;
+
+  Main.prototype.update = function() {
+    if(FlappyPlane.GAME_OVER) return;
+    this.children.forEach(function(child) {
+      child.update();
+    });
+    if(this.puffCounter > 8) {
+      this.addPuffs();
+      this.puffCounter = 0;
+    }
+    this.puffCounter += 1;
+  };
+
+  Main.prototype.addPuffs = function() {
+    var puff = new Puff('puffLarge');
+    puff.position.x = this.plane.position.x - this.plane.width + 15;
+    puff.position.y = this.plane.position.y;
+    this.addChild(puff);
+  };
+
+  module.exports = Main;
+})();
+
+},{"./main":11,"pixi.js":17}],13:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -430,7 +504,7 @@ window.addEventListener('load', function() {
 
   function Rock(texture, posX, yPlacement) {
     PIXI.Sprite.call(this, texture);  
-    this.height = FlappyPlane.GAME_HEIGHT / 2 - 30;
+    this.height = FlappyPlane.GAME_HEIGHT / 2 - FlappyPlane.VERTICAL_GAP_BETWEEN_ROCKS;
     var posY = yPlacement === 'bottom' ? FlappyPlane.GAME_HEIGHT - this.height : 0;
     this.position.x = posX;
     this.position.y = posY;
@@ -452,7 +526,7 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"pixi.js":15}],12:[function(require,module,exports){
+},{"pixi.js":17}],14:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -460,10 +534,7 @@ window.addEventListener('load', function() {
       Rock = require('./item');
 
   module.exports = function(stage) {
-    var yPlacement = null,
-        texture = null,
-        posX = null,
-        rock = null;
+    var yPlacement, texture, posX, rock;
 
     for(var i = 0, len = FlappyPlane.NUMBER_OF_ROCKS; i < len; i += 1) {
       if(i % 2 === 0) {
@@ -483,7 +554,7 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"./item":11,"pixi.js":15}],13:[function(require,module,exports){
+},{"./item":13,"pixi.js":17}],15:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -506,7 +577,7 @@ window.addEventListener('load', function() {
   module.exports = TapRightLabel;
 })();
 
-},{"pixi.js":15}],14:[function(require,module,exports){
+},{"pixi.js":17}],16:[function(require,module,exports){
 (function() {
   'use strict';
 
@@ -530,7 +601,7 @@ window.addEventListener('load', function() {
 
 })();
 
-},{"pixi.js":15}],15:[function(require,module,exports){
+},{"pixi.js":17}],17:[function(require,module,exports){
 /**
  * @license
  * pixi.js - v1.5.2

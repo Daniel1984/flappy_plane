@@ -5,7 +5,7 @@
 
   function Rock(texture, posX, yPlacement) {
     PIXI.Sprite.call(this, texture);  
-    this.height = FlappyPlane.GAME_HEIGHT / 2 - 30;
+    this.height = FlappyPlane.GAME_HEIGHT / 2 - FlappyPlane.VERTICAL_GAP_BETWEEN_ROCKS;
     var posY = yPlacement === 'bottom' ? FlappyPlane.GAME_HEIGHT - this.height : 0;
     this.position.x = posX;
     this.position.y = posY;

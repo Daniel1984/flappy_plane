@@ -5,10 +5,7 @@
       Rock = require('./item');
 
   module.exports = function(stage) {
-    var yPlacement = null,
-        texture = null,
-        posX = null,
-        rock = null;
+    var yPlacement, texture, posX, rock;
 
     for(var i = 0, len = FlappyPlane.NUMBER_OF_ROCKS; i < len; i += 1) {
       if(i % 2 === 0) {

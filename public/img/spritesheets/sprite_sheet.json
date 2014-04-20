@@ -762,9 +762,9 @@
     },
     "app/img/PNG/spritesheets/puffLarge.png": {
       "frame": {
-        "x": 1174,
+        "x": 1175,
         "y": 654,
-        "w": 42,
+        "w": 41,
         "h": 35
       },
       "rotated": false,

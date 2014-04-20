@@ -122,7 +122,7 @@
     },
     "app/img/PNG/spritesheets/textGameOver.png": {
       "frame": {
-        "x": 809,
+        "x": 808,
         "y": 0,
         "w": 412,
         "h": 78
@@ -762,9 +762,9 @@
     },
     "app/img/PNG/spritesheets/puffLarge.png": {
       "frame": {
-        "x": 1174,
+        "x": 1173,
         "y": 654,
-        "w": 42,
+        "w": 41,
         "h": 35
       },
       "rotated": false,
@@ -867,8 +867,8 @@
     "image": "sprite_sheet.png",
     "format": "RGBA8888",
     "size": {
-      "w": 1230,
-      "h": 1080	
+      "w": 1220,
+      "h": 1074
     },
     "scale": 1
   }

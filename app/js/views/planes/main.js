@@ -16,12 +16,14 @@
     this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
+    this.liftedSinceTap = 0;
   }
 
   Plane.prototype = Object.create(PIXI.MovieClip.prototype);
   Plane.prototype.constructor = Plane;
 
   Plane.prototype.update = function() {
+    this.children.forEach(function(child) { child.update(); });
     if(!FlappyPlane.GAME_OVER) {
       this.controlPlane();
       this.detectRockCollision();
@@ -30,27 +32,29 @@
 
   Plane.prototype.controlPlane = function() {
     if(this.position.y < FlappyPlane.GAME_HEIGHT) {
-      if(FlappyPlane.PLANE_FALLING) {
-        this.dropDown();
-      } else {
-        this.liftUp();
-      }
+      this.levitatePlane();
     } else {
       this.triggerGameOver();
     }
   };
 
-  Plane.prototype.dropDown = function() {
-    this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
-    if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
-      this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
+  Plane.prototype.levitatePlane = function() {
+    if(FlappyPlane.PLANE_FALLING) {
+      this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+    } else {
+      this.liftedSinceTap += FlappyPlane.PLANE_TAKE_OFF_SPEED;
+      if(this.liftedSinceTap < FlappyPlane.PLANE_MAX_LIFT) {
+        this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
+      } else { 
+        FlappyPlane.PLANE_FALLING = true;
+        this.liftedSinceTap = 0;
+      }
     }
   };
 
-  Plane.prototype.liftUp = function() {
-    this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
-    if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
-      this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
+  Plane.prototype.rotateDown = function() {
+    if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
+      this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
     }
   };
 

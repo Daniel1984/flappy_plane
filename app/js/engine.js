@@ -4,6 +4,7 @@
       AssetLoader = require('./asset_loader'),
       Clouds = require('./views/background/clouds'), 
       Ground = require('./views/background/ground'),
+      Puffs = require('./views/puffs/puff_manager'),
       StartGameScene = require('./views/game_start_scene/main'),
       GameOverScene = require('./views/game_over_scene/main'),
       Plane = require('./views/planes/main');
@@ -11,7 +12,6 @@
   function Main() {
     PIXI.Stage.call(this, 0x000000, true);
     this.mousedown = this.touchstart = this.onScreenTouch;
-    this.mouseup = this.touchend = this.onScreenTouchEnd;
     this.setupCanvas();
     this.loadAssets();
     this.initGameLoop();
@@ -22,10 +22,6 @@
 
   Main.prototype.onScreenTouch = function() {
     FlappyPlane.PLANE_FALLING = false;
-  };
-
-  Main.prototype.onScreenTouchEnd = function() {
-    FlappyPlane.PLANE_FALLING = true;
   };
 
   Main.prototype.setupCanvas = function() {
@@ -49,11 +45,13 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
+    var plane = new Plane();
     this.addChild(new Clouds());
-    this.addChild(new Plane());
+    this.addChild(plane);
+    this.addChild(new Puffs(plane));
     require('./views/rocks/list')(this); // adding rocks
     this.addChild(new Ground());
-    this.addChild(new StartGameScene());
+    this.addChild(new StartGameScene()); 
   };
   
   Main.prototype.initGameLoop = function() {
