@@ -21,8 +21,8 @@
       this.parent.removeChild(this);
     } else {
       this.alpha -= 0.01;
-      this.scale.x += 0.02;
-      this.scale.y += 0.02;
+      this.scale.x += 0.03;
+      this.scale.y += 0.03;
       this.position.x -= FlappyPlane.ROCKS_SPEED;
     }
   };

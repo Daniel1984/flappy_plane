@@ -11,7 +11,7 @@ window.FlappyPlane = {
   PLANE_TAKE_OFF_SPEED: 8,
   PLANE_LANDING_SPEED: 5,
   PLANE_FALLING: true,
-  PLANE_MAX_LIFT: 110,
+  PLANE_MAX_LIFT: 90,
   PLANE_OBSTICLES: [],
   DEFAULT_PLANE: 'Yellow',
   AWAILABLE_PLANES: ['Yellow', 'Green', 'Blue', 'Red'],

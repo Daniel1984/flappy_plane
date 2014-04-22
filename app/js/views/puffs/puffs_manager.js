@@ -2,7 +2,7 @@
   'use strict';
 
   var PIXI = require('pixi.js'),
-      Puff = require('./main');
+      Puff = require('./puff');
 
   function Main(planeRef) {
     PIXI.DisplayObjectContainer.call(this);
@@ -28,7 +28,7 @@
   };
 
   Main.prototype.addPuffs = function() {
-    var puff = new Puff('puffLarge');
+    var puff = new Puff('puffSmall');
     puff.position.x = this.plane.position.x - this.plane.width + 15;
     puff.position.y = this.plane.position.y;
     this.addChild(puff);

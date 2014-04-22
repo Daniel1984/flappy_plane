@@ -4,7 +4,8 @@
       AssetLoader = require('./asset_loader'),
       Clouds = require('./views/background/clouds'), 
       Ground = require('./views/background/ground'),
-      Puffs = require('./views/puffs/puff_manager'),
+      Puffs = require('./views/puffs/puffs_manager'),
+      Rocks = require('./views/rocks/rocks_manager'),
       StartGameScene = require('./views/game_start_scene/main'),
       GameOverScene = require('./views/game_over_scene/main'),
       Plane = require('./views/planes/main');
@@ -49,7 +50,7 @@
     this.addChild(new Clouds());
     this.addChild(plane);
     this.addChild(new Puffs(plane));
-    require('./views/rocks/list')(this); // adding rocks
+    this.addChild(new Rocks());
     this.addChild(new Ground());
     this.addChild(new StartGameScene()); 
   };

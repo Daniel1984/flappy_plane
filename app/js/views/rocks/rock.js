@@ -15,12 +15,11 @@
   Rock.prototype.constructor = Rock;
 
   Rock.prototype.update = function() {
-    if(!FlappyPlane.GAME_OVER) {
-      this.position.x -= FlappyPlane.ROCKS_SPEED;
-      if(this.position.x < -this.width) {
-        this.position.x = FlappyPlane.NUMBER_OF_ROCKS * (FlappyPlane.ROCK_DISTANCE + this.width); 
-      }
+    if(this.position.x < -this.width) {
+      this.parent.removeChild(this);
+      FlappyPlane.PLANE_OBSTICLES.pop();
     }
+    this.position.x -= FlappyPlane.ROCKS_SPEED;
   };
 
   module.exports = Rock;

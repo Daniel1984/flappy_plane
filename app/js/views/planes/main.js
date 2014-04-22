@@ -52,12 +52,6 @@
     }
   };
 
-  Plane.prototype.rotateDown = function() {
-    if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
-      this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
-    }
-  };
-
   Plane.prototype.detectRockCollision = function() {
     var posX = this.position.x;
     var posY = this.position.y;
