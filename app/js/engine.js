@@ -13,6 +13,7 @@
   function Main() {
     PIXI.Stage.call(this, 0x000000, true);
     this.mousedown = this.touchstart = this.onScreenTouch;
+    this.mouseup = this.touchend = this.onScreenTouchEnd;
     this.setupCanvas();
     this.loadAssets();
     this.initGameLoop();
@@ -23,6 +24,10 @@
 
   Main.prototype.onScreenTouch = function() {
     FlappyPlane.PLANE_FALLING = false;
+  };
+
+  Main.prototype.onScreenTouchEnd = function() {
+    FlappyPlane.PLANE_FALLING = true;
   };
 
   Main.prototype.setupCanvas = function() {

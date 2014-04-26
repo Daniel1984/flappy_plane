@@ -1,7 +1,8 @@
 (function() {
   'use strict';
 
-  var PIXI = require('pixi.js');
+  var PIXI = require('pixi.js'),
+      Buzz = require('node-buzz');
 
   function Plane() {
     var planeTextures = [];
@@ -16,14 +17,20 @@
     this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
-    this.liftedSinceTap = 0;
+    this.playSound();
   }
 
   Plane.prototype = Object.create(PIXI.MovieClip.prototype);
   Plane.prototype.constructor = Plane;
 
+  Plane.prototype.playSound = function() {
+    this.planeSound = new Buzz.sound( "/sound/cartoon-pop", {
+      formats: [ "ogg", "mp3", "aac" ]
+    });
+    this.planeSound.play().loop();
+  };
+
   Plane.prototype.update = function() {
-    this.children.forEach(function(child) { child.update(); });
     if(!FlappyPlane.GAME_OVER) {
       this.controlPlane();
       this.detectRockCollision();
@@ -40,15 +47,23 @@
 
   Plane.prototype.levitatePlane = function() {
     if(FlappyPlane.PLANE_FALLING) {
-      this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+      this.dropDown();
     } else {
-      this.liftedSinceTap += FlappyPlane.PLANE_TAKE_OFF_SPEED;
-      if(this.liftedSinceTap < FlappyPlane.PLANE_MAX_LIFT) {
-        this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
-      } else { 
-        FlappyPlane.PLANE_FALLING = true;
-        this.liftedSinceTap = 0;
-      }
+      this.liftUp();
+    }
+  };
+
+  Plane.prototype.dropDown = function() {
+    this.position.y += FlappyPlane.PLANE_LANDING_SPEED;
+    if(this.rotation <= FlappyPlane.PLANE_ROTATE_DOWN_MAX) {
+      this.rotation += FlappyPlane.PLANE_ROTATE_DOWN_SPEED;
+    }
+  };
+
+  Plane.prototype.liftUp = function() {
+    this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
+    if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
+      this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
     }
   };
 
@@ -66,6 +81,7 @@
   };
 
   Plane.prototype.triggerGameOver = function() {
+    this.planeSound.stop();
     FlappyPlane.GAME_OVER = true;
     this.parent.showGameOver();
   };

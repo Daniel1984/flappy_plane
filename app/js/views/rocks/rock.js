@@ -16,10 +16,17 @@
 
   Rock.prototype.update = function() {
     if(this.position.x < -this.width) {
-      this.parent.removeChild(this);
-      FlappyPlane.PLANE_OBSTICLES.pop();
+      this.recalibratePosition();
     }
     this.position.x -= FlappyPlane.ROCKS_SPEED;
+  };
+
+  Rock.prototype.recalibratePosition = function() {
+    this.position.x = FlappyPlane.NUMBER_OF_ROCKS * (FlappyPlane.ROCK_DISTANCE + this.getDeltaX());
+  };
+
+  Rock.prototype.getDeltaX = function() {
+    return Math.floor(Math.random() * 108 + 108);
   };
 
   module.exports = Rock;
