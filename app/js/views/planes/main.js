@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  var PIXI = require('pixi.js'),
-      Buzz = require('node-buzz');
+  var PIXI = require('pixi.js');
+//      Buzz = require('node-buzz');
 
   function Plane() {
     var planeTextures = [];
@@ -17,7 +17,7 @@
     this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
-    this.playSound();
+    // this.playSound();
   }
 
   Plane.prototype = Object.create(PIXI.MovieClip.prototype);
@@ -81,7 +81,7 @@
   };
 
   Plane.prototype.triggerGameOver = function() {
-    this.planeSound.stop();
+    // this.planeSound.stop();
     FlappyPlane.GAME_OVER = true;
     this.parent.showGameOver();
   };

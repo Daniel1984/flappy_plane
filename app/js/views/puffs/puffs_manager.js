@@ -20,7 +20,7 @@
     this.children.forEach(function(child) {
       child.update();
     });
-    if(this.puffCounter > 6) {
+    if(this.puffCounter > 8) {
       this.addPuffs();
       this.puffCounter = 0;
     }
