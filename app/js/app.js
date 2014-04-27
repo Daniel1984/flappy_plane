@@ -17,9 +17,13 @@ window.FlappyPlane = {
   PLANE_FALLING: true,
   PLANE_MAX_LIFT: 90,
   PLANE_OBSTICLES: [],
+  PLANE_SCORE: 0,
   DEFAULT_PLANE: 'Yellow',
   AWAILABLE_PLANES: ['Yellow', 'Green', 'Blue', 'Red'],
-  TEXTURE_PATH: 'app/img/PNG/spritesheets/'
+  PLANE_PATH: 'app/img/Planes/',
+  LANDSCAPE_PATH: 'app/img/landscape/',
+  CLOUDS_PATH: '/img/spritesheets/',
+  UI_PATH: 'app/img/ui/'
 };
 
 var Engine = require('./engine');
@@ -27,5 +31,4 @@ var Engine = require('./engine');
 window.addEventListener('load', function() {
   new Engine();
 }, false);
-
 

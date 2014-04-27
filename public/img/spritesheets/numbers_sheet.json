@@ -1,0 +1,215 @@
+{
+  "frames": {
+    "app/img/Numbers/number0.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 53,
+        "h": 78
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 53,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 78
+      }
+    },
+    "app/img/Numbers/number3.png": {
+      "frame": {
+        "x": 53,
+        "y": 0,
+        "w": 51,
+        "h": 78
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 51,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 51,
+        "h": 78
+      }
+    },
+    "app/img/Numbers/number8.png": {
+      "frame": {
+        "x": 104,
+        "y": 0,
+        "w": 51,
+        "h": 78
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 51,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 51,
+        "h": 78
+      }
+    },
+    "app/img/Numbers/number2.png": {
+      "frame": {
+        "x": 0,
+        "y": 78,
+        "w": 51,
+        "h": 77
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 51,
+        "h": 77
+      },
+      "sourceSize": {
+        "w": 51,
+        "h": 77
+      }
+    },
+    "app/img/Numbers/number6.png": {
+      "frame": {
+        "x": 51,
+        "y": 78,
+        "w": 53,
+        "h": 77
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 53,
+        "h": 77
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 77
+      }
+    },
+    "app/img/Numbers/number9.png": {
+      "frame": {
+        "x": 155,
+        "y": 0,
+        "w": 53,
+        "h": 77
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 53,
+        "h": 77
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 77
+      }
+    },
+    "app/img/Numbers/number1.png": {
+      "frame": {
+        "x": 155,
+        "y": 77,
+        "w": 37,
+        "h": 76
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 37,
+        "h": 76
+      },
+      "sourceSize": {
+        "w": 37,
+        "h": 76
+      }
+    },
+    "app/img/Numbers/number4.png": {
+      "frame": {
+        "x": 208,
+        "y": 0,
+        "w": 55,
+        "h": 76
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 55,
+        "h": 76
+      },
+      "sourceSize": {
+        "w": 55,
+        "h": 76
+      }
+    },
+    "app/img/Numbers/number5.png": {
+      "frame": {
+        "x": 208,
+        "y": 76,
+        "w": 50,
+        "h": 76
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 50,
+        "h": 76
+      },
+      "sourceSize": {
+        "w": 50,
+        "h": 76
+      }
+    },
+    "app/img/Numbers/number7.png": {
+      "frame": {
+        "x": 104,
+        "y": 78,
+        "w": 51,
+        "h": 76
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 51,
+        "h": 76
+      },
+      "sourceSize": {
+        "w": 51,
+        "h": 76
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "numbers_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 263,
+      "h": 155
+    },
+    "scale": 1
+  }
+}

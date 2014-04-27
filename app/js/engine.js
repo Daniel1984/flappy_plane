@@ -51,6 +51,7 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
+    console.log(AssetLoader);
     var plane = new Plane();
     this.addChild(new Clouds());
     this.addChild(plane);

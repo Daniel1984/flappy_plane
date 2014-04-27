@@ -1,0 +1,295 @@
+{
+  "frames": {
+    "app/img/Planes/planeBlue1.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeBlue2.png": {
+      "frame": {
+        "x": 88,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeBlue3.png": {
+      "frame": {
+        "x": 0,
+        "y": 73,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeGreen1.png": {
+      "frame": {
+        "x": 88,
+        "y": 73,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeGreen2.png": {
+      "frame": {
+        "x": 176,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeGreen3.png": {
+      "frame": {
+        "x": 176,
+        "y": 73,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeRed1.png": {
+      "frame": {
+        "x": 0,
+        "y": 146,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeRed2.png": {
+      "frame": {
+        "x": 88,
+        "y": 146,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeRed3.png": {
+      "frame": {
+        "x": 176,
+        "y": 146,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeYellow1.png": {
+      "frame": {
+        "x": 264,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeYellow2.png": {
+      "frame": {
+        "x": 264,
+        "y": 73,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/planeYellow3.png": {
+      "frame": {
+        "x": 264,
+        "y": 146,
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      }
+    },
+    "app/img/Planes/puffLarge.png": {
+      "frame": {
+        "x": 0,
+        "y": 219,
+        "w": 42,
+        "h": 35
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 42,
+        "h": 35
+      },
+      "sourceSize": {
+        "w": 42,
+        "h": 35
+      }
+    },
+    "app/img/Planes/puffSmall.png": {
+      "frame": {
+        "x": 42,
+        "y": 219,
+        "w": 25,
+        "h": 21
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 25,
+        "h": 21
+      },
+      "sourceSize": {
+        "w": 25,
+        "h": 21
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "planes_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 352,
+      "h": 254
+    },
+    "scale": 1
+  }
+}

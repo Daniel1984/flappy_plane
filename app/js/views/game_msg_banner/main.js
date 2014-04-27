@@ -4,7 +4,7 @@
   var PIXI = require('pixi.js');
 
   function GetReadyBanner(msg) {
-    this.texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + msg + '.png');
+    this.texture = PIXI.Texture.fromFrame(FlappyPlane.UI_PATH + msg + '.png');
     PIXI.Sprite.call(this, this.texture);
     this.setupDimention();
   }
@@ -20,8 +20,8 @@
       var w = FlappyPlane.GAME_WIDTH;
       this.width = w - w / 2;
     }
-    this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
-    this.position.y = FlappyPlane.GAME_HEIGHT / 2 - this.height - 50;
+    this.position.x = Math.floor(FlappyPlane.GAME_WIDTH / 2 - this.width / 2);
+    this.position.y = Math.floor(FlappyPlane.GAME_HEIGHT / 2 - this.height - 50);
     // -50 just small delta to lift banner higher
   };
 

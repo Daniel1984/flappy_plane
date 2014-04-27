@@ -1,0 +1,315 @@
+{
+  "frames": {
+    "app/img/ui/textGameOver.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 78
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 412,
+        "h": 78
+      }
+    },
+    "app/img/ui/textGetReady.png": {
+      "frame": {
+        "x": 0,
+        "y": 78,
+        "w": 400,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 400,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 400,
+        "h": 73
+      }
+    },
+    "app/img/ui/UIbg.png": {
+      "frame": {
+        "x": 0,
+        "y": 151,
+        "w": 264,
+        "h": 264
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 264
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      }
+    },
+    "app/img/ui/buttonLarge.png": {
+      "frame": {
+        "x": 412,
+        "y": 0,
+        "w": 196,
+        "h": 70
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 196,
+        "h": 70
+      },
+      "sourceSize": {
+        "w": 196,
+        "h": 70
+      }
+    },
+    "app/img/ui/buttonSmall.png": {
+      "frame": {
+        "x": 412,
+        "y": 70,
+        "w": 136,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 136,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 136,
+        "h": 80
+      }
+    },
+    "app/img/ui/medalBronze.png": {
+      "frame": {
+        "x": 412,
+        "y": 150,
+        "w": 114,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 114,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 114,
+        "h": 119
+      }
+    },
+    "app/img/ui/medalGold.png": {
+      "frame": {
+        "x": 412,
+        "y": 269,
+        "w": 114,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 114,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 114,
+        "h": 119
+      }
+    },
+    "app/img/ui/medalSilver.png": {
+      "frame": {
+        "x": 264,
+        "y": 151,
+        "w": 114,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 114,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 114,
+        "h": 119
+      }
+    },
+    "app/img/ui/tapLeft.png": {
+      "frame": {
+        "x": 264,
+        "y": 270,
+        "w": 85,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 85,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 85,
+        "h": 42
+      }
+    },
+    "app/img/ui/tapRight.png": {
+      "frame": {
+        "x": 264,
+        "y": 312,
+        "w": 85,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 85,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 85,
+        "h": 42
+      }
+    },
+    "app/img/ui/tap.png": {
+      "frame": {
+        "x": 548,
+        "y": 70,
+        "w": 59,
+        "h": 59
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 59,
+        "h": 59
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      }
+    },
+    "app/img/ui/tapTick.png": {
+      "frame": {
+        "x": 526,
+        "y": 150,
+        "w": 59,
+        "h": 59
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 59,
+        "h": 59
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      }
+    },
+    "app/img/ui/starBronze.png": {
+      "frame": {
+        "x": 526,
+        "y": 209,
+        "w": 39,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 39,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 38
+      }
+    },
+    "app/img/ui/starGold.png": {
+      "frame": {
+        "x": 565,
+        "y": 209,
+        "w": 39,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 39,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 38
+      }
+    },
+    "app/img/ui/starSilver.png": {
+      "frame": {
+        "x": 526,
+        "y": 269,
+        "w": 39,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 39,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 38
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "ui_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 608,
+      "h": 415
+    },
+    "scale": 1
+  }
+}

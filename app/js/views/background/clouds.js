@@ -4,7 +4,7 @@
   var PIXI = require('pixi.js');
 
   function Clouds() {
-    var texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + "background.png");
+    var texture = PIXI.Texture.fromImage(FlappyPlane.CLOUDS_PATH + "background.png");
     PIXI.TilingSprite.call(this, texture);
     this.width = FlappyPlane.GAME_WIDTH;
     this.height = FlappyPlane.GAME_HEIGHT;

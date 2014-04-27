@@ -1,0 +1,275 @@
+{
+  "frames": {
+    "app/img/landscape/groundDirt.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/landscape/groundGrass.png": {
+      "frame": {
+        "x": 0,
+        "y": 71,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/landscape/groundIce.png": {
+      "frame": {
+        "x": 0,
+        "y": 142,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/landscape/groundRock.png": {
+      "frame": {
+        "x": 0,
+        "y": 213,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/landscape/groundSnow.png": {
+      "frame": {
+        "x": 0,
+        "y": 284,
+        "w": 808,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 808,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 808,
+        "h": 71
+      }
+    },
+    "app/img/landscape/rock.png": {
+      "frame": {
+        "x": 0,
+        "y": 355,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/landscape/rockDown.png": {
+      "frame": {
+        "x": 108,
+        "y": 355,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/landscape/rockGrass.png": {
+      "frame": {
+        "x": 216,
+        "y": 355,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/landscape/rockGrassDown.png": {
+      "frame": {
+        "x": 324,
+        "y": 355,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/landscape/rockIce.png": {
+      "frame": {
+        "x": 432,
+        "y": 355,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/landscape/rockIceDown.png": {
+      "frame": {
+        "x": 540,
+        "y": 355,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/landscape/rockSnow.png": {
+      "frame": {
+        "x": 648,
+        "y": 355,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    },
+    "app/img/landscape/rockSnowDown.png": {
+      "frame": {
+        "x": 808,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 239
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "landscape_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 916,
+      "h": 594
+    },
+    "scale": 1
+  }
+}

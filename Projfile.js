@@ -4,9 +4,9 @@ exports.project = function(pm) {
   
   return {
     spritesheet: {
-      files: 'app/img/PNG/spritesheets/*.png',
+      files: 'app/img/landscape/*.png',
       dev: [
-        f.spritesheet({ filename: 'sprite_sheet.png' })
+        f.spritesheet({ filename: 'landscape_sheet.png' })
       ]
     }
   };

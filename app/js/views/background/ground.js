@@ -4,9 +4,9 @@
   var PIXI = require('pixi.js');
 
   function Ground() {
-    var texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + "groundGrass.png");
+    var texture = PIXI.Texture.fromFrame(FlappyPlane.LANDSCAPE_PATH + "groundGrass.png");
     PIXI.TilingSprite.call(this, texture, FlappyPlane.GAME_WIDTH, texture.height);
-    this.position.y = FlappyPlane.GAME_HEIGHT - texture.height;
+    this.position.y = Math.ceil(FlappyPlane.GAME_HEIGHT - texture.height);
   }
 
   Ground.prototype = Object.create(PIXI.TilingSprite.prototype);

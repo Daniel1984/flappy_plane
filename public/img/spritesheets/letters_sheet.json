@@ -1,0 +1,535 @@
+{
+  "frames": {
+    "app/img/Letters/letterQ.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 60,
+        "h": 79
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 60,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 60,
+        "h": 79
+      }
+    },
+    "app/img/Letters/letterW.png": {
+      "frame": {
+        "x": 60,
+        "y": 0,
+        "w": 76,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 76,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 76,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterB.png": {
+      "frame": {
+        "x": 136,
+        "y": 0,
+        "w": 50,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 50,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 50,
+        "h": 66
+      }
+    },
+    "app/img/Letters/letterC.png": {
+      "frame": {
+        "x": 0,
+        "y": 79,
+        "w": 52,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 52,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 52,
+        "h": 66
+      }
+    },
+    "app/img/Letters/letterD.png": {
+      "frame": {
+        "x": 52,
+        "y": 79,
+        "w": 54,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 54,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 54,
+        "h": 66
+      }
+    },
+    "app/img/Letters/letterG.png": {
+      "frame": {
+        "x": 106,
+        "y": 79,
+        "w": 52,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 52,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 52,
+        "h": 66
+      }
+    },
+    "app/img/Letters/letterJ.png": {
+      "frame": {
+        "x": 186,
+        "y": 0,
+        "w": 42,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 42,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 42,
+        "h": 66
+      }
+    },
+    "app/img/Letters/letterM.png": {
+      "frame": {
+        "x": 0,
+        "y": 145,
+        "w": 66,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 66,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 66,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterO.png": {
+      "frame": {
+        "x": 228,
+        "y": 0,
+        "w": 60,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 60,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 60,
+        "h": 66
+      }
+    },
+    "app/img/Letters/letterS.png": {
+      "frame": {
+        "x": 228,
+        "y": 66,
+        "w": 46,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 46,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 46,
+        "h": 66
+      }
+    },
+    "app/img/Letters/letterU.png": {
+      "frame": {
+        "x": 228,
+        "y": 132,
+        "w": 51,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 51,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 51,
+        "h": 66
+      }
+    },
+    "app/img/Letters/letterP.png": {
+      "frame": {
+        "x": 0,
+        "y": 209,
+        "w": 48,
+        "h": 65
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 48,
+        "h": 65
+      },
+      "sourceSize": {
+        "w": 48,
+        "h": 65
+      }
+    },
+    "app/img/Letters/letterR.png": {
+      "frame": {
+        "x": 48,
+        "y": 209,
+        "w": 51,
+        "h": 65
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 51,
+        "h": 65
+      },
+      "sourceSize": {
+        "w": 51,
+        "h": 65
+      }
+    },
+    "app/img/Letters/letterA.png": {
+      "frame": {
+        "x": 66,
+        "y": 145,
+        "w": 61,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 61,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 61,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterE.png": {
+      "frame": {
+        "x": 127,
+        "y": 145,
+        "w": 45,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 45,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 45,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterF.png": {
+      "frame": {
+        "x": 172,
+        "y": 145,
+        "w": 44,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 44,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 44,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterH.png": {
+      "frame": {
+        "x": 99,
+        "y": 209,
+        "w": 51,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 51,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 51,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterI.png": {
+      "frame": {
+        "x": 186,
+        "y": 66,
+        "w": 22,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 22,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 22,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterK.png": {
+      "frame": {
+        "x": 150,
+        "y": 209,
+        "w": 53,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 53,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterL.png": {
+      "frame": {
+        "x": 203,
+        "y": 209,
+        "w": 44,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 44,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 44,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterN.png": {
+      "frame": {
+        "x": 288,
+        "y": 0,
+        "w": 53,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 53,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterT.png": {
+      "frame": {
+        "x": 288,
+        "y": 64,
+        "w": 52,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 52,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 52,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterV.png": {
+      "frame": {
+        "x": 0,
+        "y": 274,
+        "w": 61,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 61,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 61,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterX.png": {
+      "frame": {
+        "x": 61,
+        "y": 274,
+        "w": 58,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 58,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 58,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterY.png": {
+      "frame": {
+        "x": 119,
+        "y": 274,
+        "w": 57,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 57,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 57,
+        "h": 64
+      }
+    },
+    "app/img/Letters/letterZ.png": {
+      "frame": {
+        "x": 288,
+        "y": 128,
+        "w": 50,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 50,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 50,
+        "h": 64
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "letters_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 341,
+      "h": 338
+    },
+    "scale": 1
+  }
+}

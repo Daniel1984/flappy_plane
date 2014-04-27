@@ -2,33 +2,24 @@
   'use strict';
 
   var PIXI = require('pixi.js');
-//      Buzz = require('node-buzz');
 
   function Plane() {
     var planeTextures = [];
     for(var i=0; i < 3; i++) {
-      var texturePath = FlappyPlane.TEXTURE_PATH + 'plane' + FlappyPlane.DEFAULT_PLANE; 
+      var texturePath = FlappyPlane.PLANE_PATH + 'plane' + FlappyPlane.DEFAULT_PLANE; 
       var texture = PIXI.Texture.fromFrame(texturePath + (i+1) + '.png');
       planeTextures.push(texture);
     }
     PIXI.MovieClip.call(this, planeTextures);
     this.gotoAndPlay(1);
-    this.position.y = FlappyPlane.GAME_HEIGHT / 2 - this.height / 2;
-    this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
+    this.position.y = Math.floor(FlappyPlane.GAME_HEIGHT / 2 - this.height / 2);
+    this.position.x = Math.floor(FlappyPlane.GAME_WIDTH / 2 - this.width / 2);
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
-    // this.playSound();
   }
 
   Plane.prototype = Object.create(PIXI.MovieClip.prototype);
   Plane.prototype.constructor = Plane;
-
-  Plane.prototype.playSound = function() {
-    this.planeSound = new Buzz.sound( "/sound/cartoon-pop", {
-      formats: [ "ogg", "mp3", "aac" ]
-    });
-    this.planeSound.play().loop();
-  };
 
   Plane.prototype.update = function() {
     if(!FlappyPlane.GAME_OVER) {
@@ -61,6 +52,7 @@
   };
 
   Plane.prototype.liftUp = function() {
+    if(this.position.y <= this.height / 2) this.position.y = this.height;
     this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
     if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
       this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
@@ -75,15 +67,21 @@
       if(posX > obsticle.position.x && posX < obsticle.position.x + obsticle.width) {
         if(posY > obsticle.position.y && posY < obsticle.position.y + obsticle.height) {
           _this.triggerGameOver();
+          _this.resetDifficulty();
         }
       }
     });
   };
 
   Plane.prototype.triggerGameOver = function() {
-    // this.planeSound.stop();
     FlappyPlane.GAME_OVER = true;
     this.parent.showGameOver();
+  };
+
+  Plane.prototype.resetDifficulty = function() {
+    FlappyPlane.CLOUDS_SPEED = 2;
+    FlappyPlane.GROUND_SPEED = 6;
+    FlappyPlane.ROCKS_SPEED = 5;
   };
 
   module.exports = Plane;

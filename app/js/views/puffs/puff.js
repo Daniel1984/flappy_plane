@@ -4,7 +4,7 @@
   var PIXI = require('pixi.js');
 
   function Main(puffName) {
-    var texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + puffName + '.png'); 
+    var texture = PIXI.Texture.fromFrame(FlappyPlane.PLANE_PATH + puffName + '.png'); 
     PIXI.Sprite.call(this, texture);
     this.width = texture.width;
     this.height = texture.height;

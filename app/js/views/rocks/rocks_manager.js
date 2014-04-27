@@ -23,10 +23,10 @@
     var texture, yPlacement, posX, rock;
     for(var i = 0; i < FlappyPlane.NUMBER_OF_ROCKS; i += 1) {
       if(i % 2 === 0) {
-        texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + 'rockSnow.png');
+        texture = PIXI.Texture.fromFrame(FlappyPlane.LANDSCAPE_PATH + 'rockSnow.png');
         yPlacement = 'bottom';
       } else {
-        texture = PIXI.Texture.fromFrame(FlappyPlane.TEXTURE_PATH + 'rockSnowDown.png');
+        texture = PIXI.Texture.fromFrame(FlappyPlane.LANDSCAPE_PATH + 'rockSnowDown.png');
         yPlacement = 'top';
       }
       posX = FlappyPlane.GAME_WIDTH + (FlappyPlane.NUMBER_OF_ROCKS - i) * (FlappyPlane.ROCK_DISTANCE + texture.width);
