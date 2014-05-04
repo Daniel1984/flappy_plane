@@ -52,7 +52,7 @@
   };
 
   Plane.prototype.liftUp = function() {
-    if(this.position.y <= this.height / 2) this.position.y = this.height;
+    if(this.position.y <= this.height / 2) return;
     this.position.y -= FlappyPlane.PLANE_TAKE_OFF_SPEED;
     if(this.rotation >= FlappyPlane.PLANE_ROTATE_UP_MAX) {
       this.rotation -= FlappyPlane.PLANE_ROTATE_UP_SPEED;
@@ -60,14 +60,12 @@
   };
 
   Plane.prototype.detectRockCollision = function() {
-    var posX = this.position.x;
-    var posY = this.position.y;
     var _this = this;
     FlappyPlane.PLANE_OBSTICLES.forEach(function(obsticle) {  
-      if(posX > obsticle.position.x && posX < obsticle.position.x + obsticle.width) {
-        if(posY > obsticle.position.y && posY < obsticle.position.y + obsticle.height) {
+      if(_this.position.x > obsticle.position.x && _this.position.x < obsticle.position.x + obsticle.width) {
+        if(_this.position.y > obsticle.position.y && _this.position.y < obsticle.position.y + obsticle.height) {
           _this.triggerGameOver();
-          _this.resetDifficulty();
+          _this.resetDifficulty(); 
         }
       }
     });

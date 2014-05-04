@@ -3,28 +3,29 @@
 
   var PIXI = require('pixi.js');
 
-  function GetReadyBanner(msg) {
+  function GameBanner(msg, options) {
     this.texture = PIXI.Texture.fromFrame(FlappyPlane.UI_PATH + msg + '.png');
+    this.options = options || {};
     PIXI.Sprite.call(this, this.texture);
     this.setupDimention();
   }
 
-  GetReadyBanner.prototype = Object.create(PIXI.Sprite.prototype);
-  GetReadyBanner.prototype.constructor = GetReadyBanner;
+  GameBanner.prototype = Object.create(PIXI.Sprite.prototype);
+  GameBanner.prototype.constructor = GameBanner;
 
-  GetReadyBanner.prototype.setupDimention = function() {
+  GameBanner.prototype.setupDimention = function() {
     if(this.texture.width <  FlappyPlane.GAME_WIDTH) {
       this.width = this.texture.width;
       this.height = this.texture.height;
     } else {
       var w = FlappyPlane.GAME_WIDTH;
-      this.width = w - w / 2;
+      this.width = Math.floor(w - w / 3);
     }
-    this.position.x = Math.floor(FlappyPlane.GAME_WIDTH / 2 - this.width / 2);
-    this.position.y = Math.floor(FlappyPlane.GAME_HEIGHT / 2 - this.height - 50);
+    this.position.x = this.options.posX || Math.floor(FlappyPlane.GAME_WIDTH / 2 - this.width / 2);
+    this.position.y = this.options.posY || Math.floor(FlappyPlane.GAME_HEIGHT / 2 - this.height - 50);
     // -50 just small delta to lift banner higher
   };
 
-  module.exports = GetReadyBanner;
+  module.exports = GameBanner;
 
 })();

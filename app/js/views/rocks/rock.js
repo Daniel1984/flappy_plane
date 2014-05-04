@@ -9,6 +9,7 @@
     var posY = yPlacement === 'bottom' ? FlappyPlane.GAME_HEIGHT - this.height : 0;
     this.position.x = Math.floor(posX);
     this.position.y = Math.floor(posY);
+    this.scoreRecorded = false;
  }
 
   Rock.prototype = Object.create(PIXI.Sprite.prototype);
@@ -18,8 +19,19 @@
     if(this.position.x < -this.width) {
       this.recalibratePosition();
       this.increaseDifficulty();
+      this.scoreRecorded = false;
+    }
+    if(this.position.x + this.width / 2 < FlappyPlane.GAME_WIDTH / 2) {
+      this.recordScore();
     }
     this.position.x -= FlappyPlane.ROCKS_SPEED;
+  };
+  
+  Rock.prototype.recordScore = function() {
+    if(!this.scoreRecorded) {
+      this.scoreRecorded = true;
+      FlappyPlane.GAME_SCORE += 1;
+    }
   };
 
   Rock.prototype.recalibratePosition = function() {
@@ -31,9 +43,9 @@
   };
 
   Rock.prototype.increaseDifficulty = function() {
-    FlappyPlane.CLOUDS_SPEED += 0.2;
-    FlappyPlane.GROUND_SPEED += 0.2;
-    FlappyPlane.ROCKS_SPEED += 0.2;
+    FlappyPlane.CLOUDS_SPEED += FlappyPlane.GAME_SPEED_INCREASE;
+    FlappyPlane.GROUND_SPEED += FlappyPlane.GAME_SPEED_INCREASE;
+    FlappyPlane.ROCKS_SPEED += FlappyPlane.GAME_SPEED_INCREASE;
   };
 
   module.exports = Rock;

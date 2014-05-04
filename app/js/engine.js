@@ -8,6 +8,7 @@
       Rocks = require('./views/rocks/rocks_manager'),
       StartGameScene = require('./views/game_start_scene/main'),
       GameOverScene = require('./views/game_over_scene/main'),
+      Score = require('./views/game_level_progress/progress_title'),
       Plane = require('./views/planes/main');
 
   function Main() {
@@ -51,13 +52,13 @@
   };
 
   Main.prototype.onDoneLoadingAssets = function() { 
-    console.log(AssetLoader);
     var plane = new Plane();
     this.addChild(new Clouds());
     this.addChild(plane);
     this.addChild(new Puffs(plane));
     this.addChild(new Rocks());
     this.addChild(new Ground());
+    this.addChild(new Score());
     this.addChild(new StartGameScene()); 
   };
   

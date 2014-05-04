@@ -2,6 +2,9 @@ window.FlappyPlane = {
   GAME_WIDTH: window.innerWidth,
   GAME_HEIGHT: window.innerHeight,
   GAME_OVER: true,
+  GAME_SPEED_INCREASE: 0.1,
+  GAME_SCORE: 0,
+  GAME_HIGH_SCORE: 0,
   CLOUDS_SPEED: 2,
   GROUND_SPEED: 6,
   ROCKS_SPEED: 5,
@@ -17,12 +20,13 @@ window.FlappyPlane = {
   PLANE_FALLING: true,
   PLANE_MAX_LIFT: 90,
   PLANE_OBSTICLES: [],
-  PLANE_SCORE: 0,
   DEFAULT_PLANE: 'Yellow',
   AWAILABLE_PLANES: ['Yellow', 'Green', 'Blue', 'Red'],
   PLANE_PATH: 'app/img/Planes/',
   LANDSCAPE_PATH: 'app/img/landscape/',
   CLOUDS_PATH: '/img/spritesheets/',
+  LETTERS_PATH: 'app/img/Letters/',
+  NUMBERS_PATH: 'app/img/Numbers/',
   UI_PATH: 'app/img/ui/'
 };
 

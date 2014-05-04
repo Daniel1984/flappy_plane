@@ -3,7 +3,7 @@
 
   var PIXI = require('pixi.js');
 
-  function Main(color, alpha) {
+  function Backdrop(color, alpha) {
     PIXI.Graphics.call(this);
     this.width = FlappyPlane.GAME_WIDTH;
     this.height = FlappyPlane.GAME_HEIGHT;
@@ -12,9 +12,9 @@
     this.endFill();
   }
 
-  Main.prototype = Object.create(PIXI.Graphics.prototype);
-  Main.prototype.constructor = Main;
+  Backdrop.prototype = Object.create(PIXI.Graphics.prototype);
+  Backdrop.prototype.constructor = Backdrop;
 
-  module.exports = Main;
+  module.exports = Backdrop;
 
 })();

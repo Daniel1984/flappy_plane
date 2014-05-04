@@ -48,6 +48,7 @@
   };
 
   Main.prototype.beginGame = function(e) {
+    FlappyPlane.GAME_SCORE = 0;
     this.parent.removeChild(this);
     FlappyPlane.GAME_OVER = false;
   };
