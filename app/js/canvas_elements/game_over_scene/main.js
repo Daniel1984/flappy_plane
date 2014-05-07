@@ -4,8 +4,8 @@
   var PIXI = require('pixi.js'),
       Backdrop = require('../backdrop/main'),
       MessageBanner = require('../game_msg_banner/main'),
-      Scores = require('./current_and_best_scores'),
-      GameControls = require('./reset_game_controls');
+      Scores = require('../game_current_best_score/main'),
+      GameControls = require('../game_over_controls/main');
 
   function GameOverScene() {
     PIXI.DisplayObjectContainer.call(this);

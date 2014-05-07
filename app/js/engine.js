@@ -2,14 +2,14 @@
   
   var PIXI = require('pixi.js'),
       AssetLoader = require('./asset_loader'),
-      Clouds = require('./views/background/clouds'), 
-      Ground = require('./views/background/ground'),
-      Puffs = require('./views/puffs/puffs_manager'),
-      Rocks = require('./views/rocks/rocks_manager'),
-      StartGameScene = require('./views/game_start_scene/main'),
-      GameOverScene = require('./views/game_over_scene/main'),
-      Score = require('./views/game_level_progress/progress_title'),
-      Plane = require('./views/planes/main');
+      Clouds = require('./canvas_elements/background/clouds'), 
+      Ground = require('./canvas_elements/background/ground'),
+      Puffs = require('./canvas_elements/puffs/puffs_manager'),
+      Rocks = require('./canvas_elements/rocks/rocks_manager'),
+      StartGameScene = require('./canvas_elements/game_start_scene/main'),
+      GameOverScene = require('./canvas_elements/game_over_scene/main'),
+      Score = require('./canvas_elements/game_score/main'),
+      Plane = require('./canvas_elements/planes/main');
 
   function Main() {
     PIXI.Stage.call(this, 0x000000, true);

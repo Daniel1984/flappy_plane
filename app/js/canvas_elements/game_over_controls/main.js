@@ -60,7 +60,7 @@
       letterW: 15,
       lettersXoffset: 15,
       callback: function() {
-        console.log('leader board btn');
+        FlappyPlane.router.navigate('leaderboard', { trigger: true });
       }
     };
     var button = new Button(options);

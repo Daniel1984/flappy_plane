@@ -31,8 +31,10 @@ window.FlappyPlane = {
 };
 
 var Engine = require('./engine');
+var Router = require('./web_ui/router');
 
 window.addEventListener('load', function() {
   new Engine();
+  FlappyPlane.router = new Router();
 }, false);
 
