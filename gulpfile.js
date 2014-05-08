@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     browserify = require('gulp-browserify'),
     concat = require('gulp-concat'),
+    hbsfy = require('hbsfy'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
@@ -33,7 +34,9 @@ var isProduction = gutil.env.type === "production" || false;
 gulp.task('js', function() {
   gulp.src(paths.source.mainJsFile)
     .pipe(plumber())
-    .pipe(browserify())
+    .pipe(browserify({
+      transform: ['hbsfy']
+    }))
     .pipe(concat('app.js'))
     .pipe(gulpif(isProduction, uglify())) // only minify if production
     .pipe(gulp.dest(paths.dest.js));

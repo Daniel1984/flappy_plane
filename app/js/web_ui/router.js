@@ -1,7 +1,9 @@
 (function() {
   'use strict';
   
-  var BB = require('./modules/base_bb');
+  var BB = require('./modules/base_bb'),
+      Navbar = require('./views/navbar/main');
+
   BB.history.start({ pushState: true });
 
   module.exports = BB.Router.extend({
@@ -12,15 +14,17 @@
     },
 
     initialize: function() {
-      console.log('initialized');
+      document.querySelector('.web-ui').appendChild(new Navbar().render().el);
     },
 
     indexView: function() {
-      document.getElementsByTagName('canvas')[0].classList.remove('hidden');
+      document.getElementsByTagName('canvas')[0].classList.remove('hide');
+      document.querySelector('.web-ui').classList.add('hide');
     },
 
     leaderBoardView: function() {
-      document.getElementsByTagName('canvas')[0].classList.add('hidden');
+      document.getElementsByTagName('canvas')[0].classList.add('hide');
+      document.querySelector('.web-ui').classList.remove('hide');
     }
 
   }); 
