@@ -16,20 +16,20 @@
   CurrentAndBestScore.prototype.setupPosition = function() {
     this.width = 160;
     this.height = 55;
-    this.position.y = Math.round(FlappyPlane.GAME_HEIGHT / 2 - this.height / 2); 
-    this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
+    this.position.y = Math.round(FP.GAME_HEIGHT / 2 - this.height / 2); 
+    this.position.x = FP.GAME_WIDTH / 2 - this.width / 2;
   };
 
   CurrentAndBestScore.prototype.renderCurrentScore = function() {
     var letters = ['S', 'C', 'O', 'R', 'E'];
-    var scores = String(FlappyPlane.GAME_SCORE).split('');
+    var scores = String(FP.GAME_SCORE).split('');
     this.renderText(letters, scores);
   };
 
   CurrentAndBestScore.prototype.renderBestScore = function() {
-    if(FlappyPlane.GAME_SCORE > FlappyPlane.GAME_HIGH_SCORE) FlappyPlane.GAME_HIGH_SCORE = FlappyPlane.GAME_SCORE;
+    if(FP.GAME_SCORE > FP.GAME_HIGH_SCORE) FP.GAME_HIGH_SCORE = FP.GAME_SCORE;
     var letters = ['B', 'E', 'S', 'T'];
-    var scores = String(FlappyPlane.GAME_HIGH_SCORE).split('');
+    var scores = String(FP.GAME_HIGH_SCORE).split('');
     this.renderText(letters, scores, { posY: 30 });
   };
 
@@ -37,7 +37,7 @@
     options = options || {};
     var posX = 0;
     for(var i = 0, len = letters.length; i < len; i += 1) {
-      var lTexture = PIXI.Texture.fromFrame(FlappyPlane.LETTERS_PATH + 'letter' + letters[i] + '.png');
+      var lTexture = PIXI.Texture.fromFrame(FP.LETTERS_PATH + 'letter' + letters[i] + '.png');
       var letter = new PIXI.Sprite(lTexture);
       letter.width = 20;
       letter.height = 25;
@@ -48,7 +48,7 @@
     }
 
     for(var j = 0, nlen = scores.length; j < nlen; j += 1) {
-      var nTexture = PIXI.Texture.fromFrame(FlappyPlane.NUMBERS_PATH + 'number' + scores[j] + '.png');
+      var nTexture = PIXI.Texture.fromFrame(FP.NUMBERS_PATH + 'number' + scores[j] + '.png');
       var number = new PIXI.Sprite(nTexture);
       number.width = 20;
       number.height = 25;

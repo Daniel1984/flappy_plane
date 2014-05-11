@@ -9,8 +9,8 @@
 
   function GameOverScene() {
     PIXI.DisplayObjectContainer.call(this);
-    this.width = FlappyPlane.GAME_WIDTH;
-    this.height = FlappyPlane.GAME_HEIGHT;
+    this.width = FP.GAME_WIDTH;
+    this.height = FP.GAME_HEIGHT;
     this.addElements();
   }
 

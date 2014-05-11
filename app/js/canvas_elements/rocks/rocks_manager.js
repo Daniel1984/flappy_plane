@@ -6,8 +6,8 @@
 
   function Main() {
     PIXI.DisplayObjectContainer.call(this);
-    this.width = FlappyPlane.GAME_WIDTH;
-    this.height = FlappyPlane.GAME_HEIGHT;
+    this.width = FP.GAME_WIDTH;
+    this.height = FP.GAME_HEIGHT;
     this.addRocks();
   }
 
@@ -15,23 +15,23 @@
   Main.prototype.constructor = Main;
 
   Main.prototype.update = function() {
-    if(FlappyPlane.GAME_OVER) return;
+    if(FP.GAME_OVER) return;
     this.children.forEach(function(child) { child.update(); });
   };
 
   Main.prototype.addRocks = function() {
     var texture, yPlacement, posX, rock;
-    for(var i = 0; i < FlappyPlane.NUMBER_OF_ROCKS; i += 1) {
+    for(var i = 0; i < FP.NUMBER_OF_ROCKS; i += 1) {
       if(i % 2 === 0) {
-        texture = PIXI.Texture.fromFrame(FlappyPlane.LANDSCAPE_PATH + 'rockSnow.png');
+        texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + 'rockSnow.png');
         yPlacement = 'bottom';
       } else {
-        texture = PIXI.Texture.fromFrame(FlappyPlane.LANDSCAPE_PATH + 'rockSnowDown.png');
+        texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + 'rockSnowDown.png');
         yPlacement = 'top';
       }
-      posX = FlappyPlane.GAME_WIDTH + (FlappyPlane.NUMBER_OF_ROCKS - i) * (FlappyPlane.ROCK_DISTANCE + texture.width);
+      posX = FP.GAME_WIDTH + (FP.NUMBER_OF_ROCKS - i) * (FP.ROCK_DISTANCE + texture.width);
       rock = new Rock(texture, posX, yPlacement);
-      FlappyPlane.PLANE_OBSTICLES.push(rock);
+      FP.PLANE_OBSTICLES.push(rock);
       this.addChild(rock);
     }
   };

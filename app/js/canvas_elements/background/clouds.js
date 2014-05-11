@@ -4,10 +4,10 @@
   var PIXI = require('pixi.js');
 
   function Clouds() {
-    var texture = PIXI.Texture.fromImage(FlappyPlane.CLOUDS_PATH + "background.png");
+    var texture = PIXI.Texture.fromImage(FP.CLOUDS_PATH + "background.png");
     PIXI.TilingSprite.call(this, texture);
-    this.width = FlappyPlane.GAME_WIDTH;
-    this.height = FlappyPlane.GAME_HEIGHT;
+    this.width = FP.GAME_WIDTH;
+    this.height = FP.GAME_HEIGHT;
     this.scaleToFitScreen(); 
   }
 
@@ -15,14 +15,14 @@
   Clouds.prototype.constructor = Clouds;
 
   Clouds.prototype.scaleToFitScreen = function() {
-    if(FlappyPlane.GAME_HEIGHT > this.texture.height) {
-      this.scale.y = FlappyPlane.GAME_HEIGHT / this.texture.height;
+    if(FP.GAME_HEIGHT > this.texture.height) {
+      this.scale.y = FP.GAME_HEIGHT / this.texture.height;
     }
   };
 
   Clouds.prototype.update = function() {
-    if(!FlappyPlane.GAME_OVER) {
-      this.tilePosition.x -= FlappyPlane.CLOUDS_SPEED;
+    if(!FP.GAME_OVER) {
+      this.tilePosition.x -= FP.CLOUDS_SPEED;
     }
   };
 

@@ -8,8 +8,8 @@
     PIXI.DisplayObjectContainer.call(this);
     this.width = 300;
     this.height = 100;
-    this.position.y = FlappyPlane.GAME_HEIGHT - this.height;
-    this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
+    this.position.y = FP.GAME_HEIGHT - this.height;
+    this.position.x = FP.GAME_WIDTH / 2 - this.width / 2;
     this.addShareBtn();
     this.restartBtn();
     this.addLeaderBoardBtn();
@@ -60,7 +60,8 @@
       letterW: 15,
       lettersXoffset: 15,
       callback: function() {
-        FlappyPlane.router.navigate('leaderboard', { trigger: true });
+        sessionStorage.setItem('current_score', FP.GAME_SCORE);
+        FP.router.navigate('add_score', { trigger: true });
       }
     };
     var button = new Button(options);

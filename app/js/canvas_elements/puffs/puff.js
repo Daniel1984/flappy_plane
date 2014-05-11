@@ -4,7 +4,7 @@
   var PIXI = require('pixi.js');
 
   function Main(puffName) {
-    var texture = PIXI.Texture.fromFrame(FlappyPlane.PLANE_PATH + puffName + '.png'); 
+    var texture = PIXI.Texture.fromFrame(FP.PLANE_PATH + puffName + '.png'); 
     PIXI.Sprite.call(this, texture);
     this.width = texture.width;
     this.height = texture.height;
@@ -23,7 +23,7 @@
       this.alpha -= 0.01;
       this.scale.x += 0.03;
       this.scale.y += 0.03;
-      this.position.x -= FlappyPlane.ROCKS_SPEED;
+      this.position.x -= FP.ROCKS_SPEED;
     }
   };
 

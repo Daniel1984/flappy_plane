@@ -6,8 +6,8 @@
 
   function Main(planeRef) {
     PIXI.DisplayObjectContainer.call(this);
-    this.width = FlappyPlane.GAME_WIDTH;
-    this.height = FlappyPlane.GAME_HEIGHT;
+    this.width = FP.GAME_WIDTH;
+    this.height = FP.GAME_HEIGHT;
     this.plane = planeRef;
     this.puffCounter = 0;
   }
@@ -16,7 +16,7 @@
   Main.prototype.constructor = Main;
 
   Main.prototype.update = function() {
-    if(FlappyPlane.GAME_OVER) return;
+    if(FP.GAME_OVER) return;
     this.children.forEach(function(child) {
       child.update();
     });

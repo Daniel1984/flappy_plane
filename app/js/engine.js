@@ -24,15 +24,15 @@
   Main.prototype.constructor = Main;
 
   Main.prototype.onScreenTouch = function() {
-    FlappyPlane.PLANE_FALLING = false;
+    FP.PLANE_FALLING = false;
   };
 
   Main.prototype.onScreenTouchEnd = function() {
-    FlappyPlane.PLANE_FALLING = true;
+    FP.PLANE_FALLING = true;
   };
 
   Main.prototype.setupCanvas = function() {
-    this.renderer = PIXI.autoDetectRenderer(FlappyPlane.GAME_WIDTH, FlappyPlane.GAME_HEIGHT, null, false, true);
+    this.renderer = PIXI.autoDetectRenderer(FP.GAME_WIDTH, FP.GAME_HEIGHT, null, false, true);
     document.body.appendChild(this.renderer.view);
   };
 
@@ -46,7 +46,7 @@
   };
 
   Main.prototype.restartGame = function() {
-    FlappyPlane.PLANE_OBSTICLES = [];
+    FP.PLANE_OBSTICLES = [];
     this.children = [];
     this.onDoneLoadingAssets();
   };

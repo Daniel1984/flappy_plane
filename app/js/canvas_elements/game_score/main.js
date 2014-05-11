@@ -9,7 +9,7 @@
     this.width = 190;
     this.height = 35;
     this.position.y = 2;
-    this.position.x = FlappyPlane.GAME_WIDTH / 2 - this.width / 2;
+    this.position.x = FP.GAME_WIDTH / 2 - this.width / 2;
     this.drawUiElements();
   }
 
@@ -23,7 +23,7 @@
   };
 
   ProgressTitle.prototype.drawBackground = function() {
-    var texture = PIXI.Texture.fromFrame(FlappyPlane.UI_PATH + 'buttonLarge.png');
+    var texture = PIXI.Texture.fromFrame(FP.UI_PATH + 'buttonLarge.png');
     var background = new PIXI.Sprite(texture);
     background.width = this.width;
     background.height = this.height;
@@ -34,7 +34,7 @@
   ProgressTitle.prototype.drawScoreTitle = function() {
     var posX = 10;
     for(var i = 0, len = this.scores.length; i < len; i += 1) {
-      var texture = PIXI.Texture.fromFrame(FlappyPlane.LETTERS_PATH + 'letter' + this.scores[i] + '.png');
+      var texture = PIXI.Texture.fromFrame(FP.LETTERS_PATH + 'letter' + this.scores[i] + '.png');
       var letter = new PIXI.Sprite(texture); 
       letter.width = 20;
       letter.height = 25;
@@ -46,10 +46,10 @@
   };
 
   ProgressTitle.prototype.drawScoreNumber = function() {
-    var scores = String(FlappyPlane.GAME_SCORE).split('');
+    var scores = String(FP.GAME_SCORE).split('');
     var posX = 120;
     for(var i = 0, len = scores.length; i < len; i += 1) {
-      var texture = PIXI.Texture.fromFrame(FlappyPlane.NUMBERS_PATH + 'number' + scores[i] + '.png');
+      var texture = PIXI.Texture.fromFrame(FP.NUMBERS_PATH + 'number' + scores[i] + '.png');
       var number = new PIXI.Sprite(texture);
       number.width = 20;
       number.height = 25;

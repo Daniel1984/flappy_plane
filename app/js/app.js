@@ -1,4 +1,4 @@
-window.FlappyPlane = {
+window.FP = {
   GAME_WIDTH: window.innerWidth,
   GAME_HEIGHT: window.innerHeight,
   GAME_OVER: true,
@@ -35,6 +35,6 @@ var Router = require('./web_ui/router');
 
 window.addEventListener('load', function() {
   new Engine();
-  FlappyPlane.router = new Router();
+  FP.router = new Router();
 }, false);
 

@@ -23,7 +23,7 @@
   };
 
   Button.prototype.renderBtnBackground = function() {
-    var texture = PIXI.Texture.fromFrame(FlappyPlane.UI_PATH + 'buttonLarge.png');
+    var texture = PIXI.Texture.fromFrame(FP.UI_PATH + 'buttonLarge.png');
     var background = new PIXI.Sprite(texture);
     background.width = this.width;
     background.height = this.height;
@@ -36,7 +36,7 @@
       if(this.options.letters[i] === '') {
         posX += this.options.letterW;
       } else {
-        var texture = PIXI.Texture.fromFrame(FlappyPlane.LETTERS_PATH + 'letter' + this.options.letters[i] + '.png');
+        var texture = PIXI.Texture.fromFrame(FP.LETTERS_PATH + 'letter' + this.options.letters[i] + '.png');
         var letter = new PIXI.Sprite(texture);
         letter.width = this.options.letterW;
         letter.height = this.options.letterH;

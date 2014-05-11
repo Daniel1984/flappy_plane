@@ -5,8 +5,8 @@
 
   function Backdrop(color, alpha) {
     PIXI.Graphics.call(this);
-    this.width = FlappyPlane.GAME_WIDTH;
-    this.height = FlappyPlane.GAME_HEIGHT;
+    this.width = FP.GAME_WIDTH;
+    this.height = FP.GAME_HEIGHT;
     this.beginFill(color, alpha);
     this.drawRect(0, 0, this.width, this.height);
     this.endFill();

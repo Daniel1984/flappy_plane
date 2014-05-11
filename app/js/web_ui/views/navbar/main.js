@@ -18,7 +18,7 @@
 
     onTitleClick: function(e) {
       e.preventDefault();
-      FlappyPlane.router.navigate('/', { trigger: true });
+      FP.router.navigate('/', { trigger: true });
     }
 
   });

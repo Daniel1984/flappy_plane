@@ -5,8 +5,8 @@
 
   function Rock(texture, posX, yPlacement) {
     PIXI.Sprite.call(this, texture);  
-    this.height = Math.round(FlappyPlane.GAME_HEIGHT / 2 - FlappyPlane.VERTICAL_GAP_BETWEEN_ROCKS);
-    var posY = yPlacement === 'bottom' ? FlappyPlane.GAME_HEIGHT - this.height : 0;
+    this.height = Math.round(FP.GAME_HEIGHT / 2 - FP.VERTICAL_GAP_BETWEEN_ROCKS);
+    var posY = yPlacement === 'bottom' ? FP.GAME_HEIGHT - this.height : 0;
     this.position.x = Math.floor(posX);
     this.position.y = Math.floor(posY);
     this.scoreRecorded = false;
@@ -21,21 +21,21 @@
       this.increaseDifficulty();
       this.scoreRecorded = false;
     }
-    if(this.position.x + this.width / 2 < FlappyPlane.GAME_WIDTH / 2) {
+    if(this.position.x + this.width / 2 < FP.GAME_WIDTH / 2) {
       this.recordScore();
     }
-    this.position.x -= FlappyPlane.ROCKS_SPEED;
+    this.position.x -= FP.ROCKS_SPEED;
   };
   
   Rock.prototype.recordScore = function() {
     if(!this.scoreRecorded) {
       this.scoreRecorded = true;
-      FlappyPlane.GAME_SCORE += 1;
+      FP.GAME_SCORE += 1;
     }
   };
 
   Rock.prototype.recalibratePosition = function() {
-    this.position.x = FlappyPlane.NUMBER_OF_ROCKS * (FlappyPlane.ROCK_DISTANCE + this.getDeltaX());
+    this.position.x = FP.NUMBER_OF_ROCKS * (FP.ROCK_DISTANCE + this.getDeltaX());
   };
 
   Rock.prototype.getDeltaX = function() {
@@ -43,9 +43,9 @@
   };
 
   Rock.prototype.increaseDifficulty = function() {
-    FlappyPlane.CLOUDS_SPEED += FlappyPlane.GAME_SPEED_INCREASE;
-    FlappyPlane.GROUND_SPEED += FlappyPlane.GAME_SPEED_INCREASE;
-    FlappyPlane.ROCKS_SPEED += FlappyPlane.GAME_SPEED_INCREASE;
+    FP.CLOUDS_SPEED += FP.GAME_SPEED_INCREASE;
+    FP.GROUND_SPEED += FP.GAME_SPEED_INCREASE;
+    FP.ROCKS_SPEED += FP.GAME_SPEED_INCREASE;
   };
 
   module.exports = Rock;

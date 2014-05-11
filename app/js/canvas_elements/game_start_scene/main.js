@@ -9,8 +9,8 @@
 
   function Main() {
     PIXI.DisplayObjectContainer.call(this);
-    this.width = FlappyPlane.GAME_WIDTH;
-    this.height = FlappyPlane.GAME_HEIGHT;
+    this.width = FP.GAME_WIDTH;
+    this.height = FP.GAME_HEIGHT;
     this.setupInteractivity();
     this.addElements();
   }
@@ -48,9 +48,9 @@
   };
 
   Main.prototype.beginGame = function(e) {
-    FlappyPlane.GAME_SCORE = 0;
+    FP.GAME_SCORE = 0;
     this.parent.removeChild(this);
-    FlappyPlane.GAME_OVER = false;
+    FP.GAME_OVER = false;
   };
 
   Main.prototype.update = function() {};
