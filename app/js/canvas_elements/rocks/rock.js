@@ -35,7 +35,7 @@
   };
 
   Rock.prototype.recalibratePosition = function() {
-    this.position.x = FP.NUMBER_OF_ROCKS * (FP.ROCK_DISTANCE + this.getDeltaX());
+    this.position.x = (FP.NUMBER_OF_ROCKS * (FP.ROCK_DISTANCE + this.getDeltaX())).toFixed(1);
   };
 
   Rock.prototype.getDeltaX = function() {

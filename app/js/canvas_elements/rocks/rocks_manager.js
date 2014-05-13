@@ -23,10 +23,12 @@
     var texture, yPlacement, posX, rock;
     for(var i = 0; i < FP.NUMBER_OF_ROCKS; i += 1) {
       if(i % 2 === 0) {
-        texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + 'rockSnow.png');
+        //texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + 'rockSnow.png');
+        texture = PIXI.Texture.fromFrame('/img/rockSnow.png');
         yPlacement = 'bottom';
       } else {
-        texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + 'rockSnowDown.png');
+        //texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + 'rockSnowDown.png');
+        texture = PIXI.Texture.fromFrame('/img/rockSnowDown.png');
         yPlacement = 'top';
       }
       posX = FP.GAME_WIDTH + (FP.NUMBER_OF_ROCKS - i) * (FP.ROCK_DISTANCE + texture.width);

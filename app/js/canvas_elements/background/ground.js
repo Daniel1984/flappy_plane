@@ -4,7 +4,8 @@
   var PIXI = require('pixi.js');
 
   function Ground() {
-    var texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + "groundGrass.png");
+    // var texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + "groundGrass.png");
+    var texture = PIXI.Texture.fromImage("/img/groundGrass.png");
     PIXI.TilingSprite.call(this, texture, FP.GAME_WIDTH, texture.height);
     this.position.y = Math.ceil(FP.GAME_HEIGHT - texture.height);
   }
