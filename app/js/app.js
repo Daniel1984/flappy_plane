@@ -33,8 +33,25 @@ window.FP = {
 var Engine = require('./engine');
 var Router = require('./web_ui/router');
 
+// var scaleToFitX = FP.GAME_WIDTH / 800;
+// var scaleToFitY = FP.GAME_HEIGHT / 480;
+// var currentScreenRatio = FP.GAME_WIDTH / FP.GAME_HEIGHT;
+// var optimalRatio = Math.min(scaleToFitX, scaleToFitY);
+
 window.addEventListener('load', function() {
   new Engine();
   FP.router = new Router();
-}, false);
 
+  var canvas = document.getElementsByTagName('canvas')[0];
+
+//  this.addEventListener('resize', function() {
+//    if (currentScreenRatio >= 1.77 && currentScreenRatio <= 1.79) {
+//      canvas.style.width = gameWidth + "px";
+//      canvas.style.height = gameHeight + "px";
+//    } else {
+//      canvas.style.width = 800 * optimalRatio + "px";
+//      canvas.style.height = 480 * optimalRatio + "px";
+//    }
+//  }, false);
+
+}, false);

@@ -20,19 +20,32 @@
   };
 
   Main.prototype.addRocks = function() {
-    var texture, yPlacement, posX, rock;
+    var texture, yPlacement, posX, rock, width_delta;
     for(var i = 0; i < FP.NUMBER_OF_ROCKS; i += 1) {
-      if(i % 2 === 0) {
-        //texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + 'rockSnow.png');
-        texture = PIXI.Texture.fromFrame('/img/rockSnow.png');
-        yPlacement = 'bottom';
-      } else {
-        //texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + 'rockSnowDown.png');
-        texture = PIXI.Texture.fromFrame('/img/rockSnowDown.png');
-        yPlacement = 'top';
+      switch(i) {
+        case 0:
+          width_delta = -10; 
+          texture = PIXI.Texture.fromFrame('/img/rockSnow.png');
+          yPlacement = 'bottom';
+          break;
+        case 1:
+          width_delta = 50; 
+          texture = PIXI.Texture.fromFrame('/img/rockSnowDown.png');
+          yPlacement = 'top';
+          break;
+        case 2:
+          width_delta = 50; 
+          texture = PIXI.Texture.fromFrame('/img/rockSnow.png');
+          yPlacement = 'bottom';
+          break;
+        case 3:
+          width_delta = -10;
+          texture = PIXI.Texture.fromFrame('/img/rockSnowDown.png');
+          yPlacement = 'top';
+          break;
       }
       posX = FP.GAME_WIDTH + (FP.NUMBER_OF_ROCKS - i) * (FP.ROCK_DISTANCE + texture.width);
-      rock = new Rock(texture, posX, yPlacement);
+      rock = new Rock(texture, posX, yPlacement, width_delta);
       FP.PLANE_OBSTICLES.push(rock);
       this.addChild(rock);
     }

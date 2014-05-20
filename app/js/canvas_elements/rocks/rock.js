@@ -3,17 +3,22 @@
 
   var PIXI = require('pixi.js');
 
-  function Rock(texture, posX, yPlacement) {
-    PIXI.Sprite.call(this, texture);  
-    this.height = Math.round(FP.GAME_HEIGHT / 2 - FP.VERTICAL_GAP_BETWEEN_ROCKS);
-    var posY = yPlacement === 'bottom' ? FP.GAME_HEIGHT - this.height : 0;
-    this.position.x = Math.floor(posX);
-    this.position.y = Math.floor(posY);
-    this.scoreRecorded = false;
+  function Rock(texture, posX, yPlacement, height_delta) {
+    PIXI.Sprite.call(this, texture); 
+    window.shit = this;
+    this.setupPositioning(posX, yPlacement, height_delta);
  }
 
   Rock.prototype = Object.create(PIXI.Sprite.prototype);
   Rock.prototype.constructor = Rock;
+
+  Rock.prototype.setupPositioning = function(posX, yPlacement, height_delta) {
+    this.height = Math.round(FP.GAME_HEIGHT / 2 - height_delta);
+    var posY = yPlacement === 'bottom' ? FP.GAME_HEIGHT - this.height : 0;
+    this.position.x = Math.floor(posX);
+    this.position.y = Math.floor(posY);
+    this.scoreRecorded = false;
+  };
 
   Rock.prototype.update = function() {
     if(this.position.x < -this.width) {
@@ -29,7 +34,7 @@
   
   Rock.prototype.recordScore = function() {
     if(!this.scoreRecorded) {
-      this.scoreRecorded = true;
+      this.scoreRecorded = trthis.texture.width;
       FP.GAME_SCORE += 1;
     }
   };
@@ -39,7 +44,7 @@
   };
 
   Rock.prototype.getDeltaX = function() {
-    return Math.floor(Math.random() * 108 + 108);
+    return Math.floor(Math.random() * this.texture.width + this.texture.width);
   };
 
   Rock.prototype.increaseDifficulty = function() {
