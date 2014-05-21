@@ -43,18 +43,18 @@
       } else if (document.querySelector('.name-input').value === "") {
         this.$('p.bg-danger').text('enter you name/nickname below').removeClass('hide');
       } else {
-        e.currentTarget.innerHTML = 'hit';
-//        this.model.save({
-//          name: document.querySelector('.name-input').value,
-//          score: FP.GAME_SCORE
-//        },{
-//          success: function() {
-//            FP.GAME_SCORE = 0;
-//            FP.GAME_HIGH_SCORE = 0;
-//            sessionStorage.clear();
-//            FP.router.navigate('leaderboard', { trigger: true });
-//          }
-//        });
+        e.currentTarget.innerHTML = 'loading...';
+        this.model.save({
+          name: document.querySelector('.name-input').value,
+          score: FP.GAME_SCORE
+        },{
+          success: function() {
+            FP.GAME_SCORE = 0;
+            FP.GAME_HIGH_SCORE = 0;
+            sessionStorage.clear();
+            FP.router.navigate('leaderboard', { trigger: true });
+          }
+        });
       }
     }
 
