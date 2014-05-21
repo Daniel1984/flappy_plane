@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
   new Engine();
   FP.router = new Router();
 
-  var canvas = document.getElementsByTagName('canvas')[0];
+//  var canvas = document.getElementsByTagName('canvas')[0];
 
 //  this.addEventListener('resize', function() {
 //    if (currentScreenRatio >= 1.77 && currentScreenRatio <= 1.79) {

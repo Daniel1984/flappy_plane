@@ -26,7 +26,7 @@
       letterW: 15,
       lettersXoffset: 30,
       callback: function() {
-        console.log('share button');
+        alert('not implemented yet');
       }
     };
     var button = new Button(options);

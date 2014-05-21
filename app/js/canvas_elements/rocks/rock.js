@@ -34,17 +34,19 @@
   
   Rock.prototype.recordScore = function() {
     if(!this.scoreRecorded) {
-      this.scoreRecorded = trthis.texture.width;
+      this.scoreRecorded = this.texture.width;
       FP.GAME_SCORE += 1;
     }
   };
 
   Rock.prototype.recalibratePosition = function() {
-    this.position.x = (FP.NUMBER_OF_ROCKS * (FP.ROCK_DISTANCE + this.getDeltaX())).toFixed(1);
+   // this.position.x = (FP.NUMBER_OF_ROCKS * (FP.ROCK_DISTANCE + this.getDeltaX())).toFixed(1);
+    this.position.x = (FP.NUMBER_OF_ROCKS * (FP.ROCK_DISTANCE + this.texture.width + this.getDeltaX())).toFixed(1);
   };
 
   Rock.prototype.getDeltaX = function() {
-    return Math.floor(Math.random() * this.texture.width + this.texture.width);
+    //return Math.floor(Math.random() * this.texture.width + this.texture.width);
+    return Math.random() * 40 - 20;
   };
 
   Rock.prototype.increaseDifficulty = function() {
