@@ -5,8 +5,8 @@
 
   function Rock(texture, posX, yPlacement, height_delta) {
     PIXI.Sprite.call(this, texture); 
-    window.shit = this;
     this.setupPositioning(posX, yPlacement, height_delta);
+    this.speedIncrease = FP.IS_MOBILE() ? FP.GAME_MOBILE_SPEED_INCREASE : FP.GAME_SPEED_INCREASE;
  }
 
   Rock.prototype = Object.create(PIXI.Sprite.prototype);
@@ -40,19 +40,17 @@
   };
 
   Rock.prototype.recalibratePosition = function() {
-   // this.position.x = (FP.NUMBER_OF_ROCKS * (FP.ROCK_DISTANCE + this.getDeltaX())).toFixed(1);
     this.position.x = (FP.NUMBER_OF_ROCKS * (FP.ROCK_DISTANCE + this.texture.width + this.getDeltaX())).toFixed(1);
   };
 
   Rock.prototype.getDeltaX = function() {
-    //return Math.floor(Math.random() * this.texture.width + this.texture.width);
-    return Math.random() * 40 - 20;
+    return FP.IS_MOBILE() ? (Math.random() * 20 - 10) : (Math.random() * 40 - 20);
   };
 
   Rock.prototype.increaseDifficulty = function() {
-    FP.CLOUDS_SPEED += FP.GAME_SPEED_INCREASE;
-    FP.GROUND_SPEED += FP.GAME_SPEED_INCREASE;
-    FP.ROCKS_SPEED += FP.GAME_SPEED_INCREASE;
+    FP.CLOUDS_SPEED += this.speedIncrease;
+    FP.GROUND_SPEED += this.speedIncrease;
+    FP.ROCKS_SPEED += this.speedIncrease;
   };
 
   module.exports = Rock;

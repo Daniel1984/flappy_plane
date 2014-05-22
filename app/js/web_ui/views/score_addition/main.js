@@ -44,6 +44,7 @@
         this.$('p.bg-danger').text('enter you name/nickname below').removeClass('hide');
       } else {
         e.currentTarget.innerHTML = 'loading...';
+        window.shit = e.currentTrget;
         this.model.save({
           name: document.querySelector('.name-input').value,
           score: FP.GAME_SCORE

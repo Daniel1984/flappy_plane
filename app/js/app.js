@@ -1,8 +1,11 @@
-window.FP = {
+var parser = require('user-agent-parser');
+
+window.FP = { 
   GAME_WIDTH: window.innerWidth,
   GAME_HEIGHT: window.innerHeight,
   GAME_OVER: true,
-  GAME_SPEED_INCREASE: 0.1,
+  GAME_SPEED_INCREASE: 0.2,
+  GAME_MOBILE_SPEED_INCREASE: 0.1,
   GAME_SCORE: 0,
   GAME_HIGH_SCORE: 0,
   CLOUDS_SPEED: 2,
@@ -11,8 +14,8 @@ window.FP = {
   NUMBER_OF_ROCKS: 4,
   ROCK_DISTANCE: Math.floor(window.innerWidth / 4),
   VERTICAL_GAP_BETWEEN_ROCKS: 50,
-  PLANE_TAKE_OFF_SPEED: 5,
-  PLANE_LANDING_SPEED: 7,
+  PLANE_TAKE_OFF_SPEED: 6,
+  PLANE_LANDING_SPEED: 8,
   PLANE_ROTATE_UP_SPEED: 0.1,
   PLANE_ROTATE_DOWN_SPEED: 0.1,
   PLANE_ROTATE_DOWN_MAX: 0.7,
@@ -27,7 +30,12 @@ window.FP = {
   CLOUDS_PATH: '/img/spritesheets/',
   LETTERS_PATH: 'app/img/Letters/',
   NUMBERS_PATH: 'app/img/Numbers/',
-  UI_PATH: 'app/img/ui/'
+  DEVICE: parser(navigator.userAgent).device.type,
+  UI_PATH: 'app/img/ui/',
+  IS_MOBILE: function() {
+    if(this.DEVICE && this.DEVICE === 'mobile') return true;
+    return false;
+  }
 };
 
 var Engine = require('./engine');
