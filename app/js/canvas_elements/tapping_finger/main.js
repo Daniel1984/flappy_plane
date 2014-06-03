@@ -11,8 +11,8 @@
     PIXI.MovieClip.call(this, fingerTextures);
     this.animationSpeed = 0.1;
     this.gotoAndPlay(1);
-    this.position.x = Math.floor(FP.GAME_WIDTH / 2 + this.width);
-    this.position.y = this.options.posY || Math.floor(FP.GAME_HEIGHT / 2 + (this.height - 30));
+    this.position.x = Math.floor(FP.getWidth() / 2 + this.width);
+    this.position.y = this.options.posY || Math.floor(FP.getHeight() / 2 + (this.height - 30));
   }
 
   TappingFinger.prototype = Object.create(PIXI.MovieClip.prototype);

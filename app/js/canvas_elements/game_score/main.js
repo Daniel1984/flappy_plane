@@ -9,7 +9,7 @@
     this.width = 190;
     this.height = 35;
     this.position.y = 2;
-    this.position.x = FP.GAME_WIDTH / 2 - this.width / 2;
+    this.position.x = FP.getWidth() / 2 - this.width / 2;
     this.drawUiElements();
   }
 

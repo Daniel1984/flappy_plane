@@ -16,8 +16,8 @@
   CurrentAndBestScore.prototype.setupPosition = function() {
     this.width = 160;
     this.height = 55;
-    this.position.y = Math.round(FP.GAME_HEIGHT / 2 - this.height / 2); 
-    this.position.x = FP.GAME_WIDTH / 2 - this.width / 2;
+    this.position.y = Math.round(FP.getHeight() / 2 - this.height / 2); 
+    this.position.x = FP.getWidth() / 2 - this.width / 2;
   };
 
   CurrentAndBestScore.prototype.renderCurrentScore = function() {

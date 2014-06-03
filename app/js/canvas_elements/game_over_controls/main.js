@@ -8,8 +8,8 @@
     PIXI.DisplayObjectContainer.call(this);
     this.width = 300;
     this.height = 100;
-    this.position.y = FP.GAME_HEIGHT - this.height;
-    this.position.x = FP.GAME_WIDTH / 2 - this.width / 2;
+    this.position.y = FP.getHeight() - this.height;
+    this.position.x = FP.getWidth() / 2 - this.width / 2;
     this.addShareBtn();
     this.restartBtn();
     this.addLeaderBoardBtn();

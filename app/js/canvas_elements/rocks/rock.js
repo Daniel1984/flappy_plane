@@ -5,16 +5,17 @@
 
   function Rock(texture, posX, yPlacement, height_delta) {
     PIXI.Sprite.call(this, texture); 
+    this.gameWidth = FP.getWidth();
     this.setupPositioning(posX, yPlacement, height_delta);
-    this.speedIncrease = FP.IS_MOBILE() ? FP.GAME_MOBILE_SPEED_INCREASE : FP.GAME_SPEED_INCREASE;
+    this.speedIncrease = FP.isMobile() ? FP.GAME_MOBILE_SPEED_INCREASE : FP.GAME_SPEED_INCREASE;
  }
 
   Rock.prototype = Object.create(PIXI.Sprite.prototype);
   Rock.prototype.constructor = Rock;
 
   Rock.prototype.setupPositioning = function(posX, yPlacement, height_delta) {
-    this.height = Math.round(FP.GAME_HEIGHT / 2 - height_delta);
-    var posY = yPlacement === 'bottom' ? FP.GAME_HEIGHT - this.height : 0;
+    this.height = Math.round(FP.getHeight() / 2 - height_delta);
+    var posY = yPlacement === 'bottom' ? FP.getHeight() - this.height : 0;
     this.position.x = Math.floor(posX);
     this.position.y = Math.floor(posY);
     this.scoreRecorded = false;
@@ -26,7 +27,7 @@
       this.increaseDifficulty();
       this.scoreRecorded = false;
     }
-    if(this.position.x + this.width / 2 < FP.GAME_WIDTH / 2) {
+    if(this.position.x + this.width / 2 < this.gameWidth / 2) {
       this.recordScore();
     }
     this.position.x -= FP.ROCKS_SPEED;
@@ -44,7 +45,7 @@
   };
 
   Rock.prototype.getDeltaX = function() {
-    return FP.IS_MOBILE() ? (Math.random() * 20 - 10) : (Math.random() * 40 - 20);
+    return FP.isMobile() ? (Math.random() * 20 - 10) : (Math.random() * 40 - 20);
   };
 
   Rock.prototype.increaseDifficulty = function() {

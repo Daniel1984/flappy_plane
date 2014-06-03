@@ -9,8 +9,8 @@
 
   function GameOverScene() {
     PIXI.DisplayObjectContainer.call(this);
-    this.width = FP.GAME_WIDTH;
-    this.height = FP.GAME_HEIGHT;
+    this.width = FP.getWidth();
+    this.height = FP.getHeight();
     this.addElements();
   }
 

@@ -12,10 +12,12 @@
     }
     PIXI.MovieClip.call(this, planeTextures);
     this.gotoAndPlay(1);
-    this.position.y = Math.floor(FP.GAME_HEIGHT / 2 - this.height / 2);
-    this.position.x = Math.floor(FP.GAME_WIDTH / 2 - this.width / 2);
+    this.position.y = Math.floor(FP.getHeight() / 2 - this.height / 2);
+    this.position.x = Math.floor(FP.getWidth() / 2 - this.width / 2);
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
+    this.scale.x = this.scale.y = 0.8;
+    this.gameHeight = FP.getHeight();
   }
 
   Plane.prototype = Object.create(PIXI.MovieClip.prototype);
@@ -29,7 +31,7 @@
   };
 
   Plane.prototype.controlPlane = function() {
-    if(this.position.y < FP.GAME_HEIGHT) {
+    if(this.position.y < this.gameHeight) {
       this.levitatePlane();
     } else {
       this.triggerGameOver();

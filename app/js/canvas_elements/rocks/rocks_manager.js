@@ -6,8 +6,8 @@
 
   function Main() {
     PIXI.DisplayObjectContainer.call(this);
-    this.width = FP.GAME_WIDTH;
-    this.height = FP.GAME_HEIGHT;
+    this.width = FP.getWidth();
+    this.height = FP.getHeight();
     this.addRocks();
   }
 
@@ -44,7 +44,7 @@
           yPlacement = 'top';
           break;
       }
-      posX = FP.GAME_WIDTH + (FP.NUMBER_OF_ROCKS - i) * (FP.ROCK_DISTANCE + texture.width);
+      posX = FP.getWidth() + (FP.NUMBER_OF_ROCKS - i) * (FP.ROCK_DISTANCE + texture.width);
       rock = new Rock(texture, posX, yPlacement, width_delta);
       FP.PLANE_OBSTICLES.push(rock);
       this.addChild(rock);

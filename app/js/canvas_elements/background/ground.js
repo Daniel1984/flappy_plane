@@ -6,9 +6,9 @@
   function Ground() {
     // var texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + "groundGrass.png");
     var texture = PIXI.Texture.fromImage("/img/groundGrass.png");
-    PIXI.TilingSprite.call(this, texture, FP.GAME_WIDTH, texture.height);
-    var deltaYmobile = FP.IS_MOBILE() ? 20 : 0;
-    this.position.y = Math.ceil(FP.GAME_HEIGHT - texture.height + deltaYmobile);
+    PIXI.TilingSprite.call(this, texture, FP.getWidth(), texture.height);
+    var deltaYmobile = FP.isMobile() ? 20 : 0;
+    this.position.y = Math.ceil(FP.getHeight() - texture.height + deltaYmobile);
   }
 
   Ground.prototype = Object.create(PIXI.TilingSprite.prototype);

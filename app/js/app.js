@@ -1,8 +1,6 @@
 var parser = require('user-agent-parser');
 
 window.FP = { 
-  GAME_WIDTH: window.innerWidth,
-  GAME_HEIGHT: window.innerHeight,
   GAME_OVER: true,
   GAME_SPEED_INCREASE: 0.2,
   GAME_MOBILE_SPEED_INCREASE: 0.1,
@@ -32,34 +30,29 @@ window.FP = {
   NUMBERS_PATH: 'app/img/Numbers/',
   DEVICE: parser(navigator.userAgent).device.type,
   UI_PATH: 'app/img/ui/',
-  IS_MOBILE: function() {
+  IS_NATIVE: CocoonJS.App.nativeExtensionObjectAvailable,
+
+  isMobile: function() {
     if(this.DEVICE && this.DEVICE === 'mobile') return true;
     return false;
+  },
+
+  getWidth: function() {
+    if(this.isMobile() || this.IS_NATIVE || window.innerWidth < 1300) return window.innerWidth;
+    return 1300;
+  },
+
+  getHeight: function() {
+    if(this.isMobile() || this.IS_NATIVE || window.innerHeight < 670) return window.innerHeight;
+    return 670;
   }
 };
 
 var Engine = require('./engine');
 var Router = require('./web_ui/router');
 
-// var scaleToFitX = FP.GAME_WIDTH / 800;
-// var scaleToFitY = FP.GAME_HEIGHT / 480;
-// var currentScreenRatio = FP.GAME_WIDTH / FP.GAME_HEIGHT;
-// var optimalRatio = Math.min(scaleToFitX, scaleToFitY);
-
 window.addEventListener('load', function() {
   new Engine();
   FP.router = new Router();
-
-//  var canvas = document.getElementsByTagName('canvas')[0];
-
-//  this.addEventListener('resize', function() {
-//    if (currentScreenRatio >= 1.77 && currentScreenRatio <= 1.79) {
-//      canvas.style.width = gameWidth + "px";
-//      canvas.style.height = gameHeight + "px";
-//    } else {
-//      canvas.style.width = 800 * optimalRatio + "px";
-//      canvas.style.height = 480 * optimalRatio + "px";
-//    }
-//  }, false);
 
 }, false);

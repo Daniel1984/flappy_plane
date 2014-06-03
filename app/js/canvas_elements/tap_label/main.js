@@ -14,8 +14,8 @@
   TapRightLabel.prototype.constructor = TapRightLabel;
 
   TapRightLabel.prototype.setupDimention = function() {
-    this.position.y = this.options.posY || Math.floor(FP.GAME_HEIGHT / 2 + this.height);
-    this.position.x = Math.floor(FP.GAME_WIDTH / 2 - (this.width + 30));
+    this.position.y = this.options.posY || Math.floor(FP.getHeight() / 2 + this.height);
+    this.position.x = Math.floor(FP.getWidth() / 2 - (this.width + 30));
   };
 
   module.exports = TapRightLabel;
