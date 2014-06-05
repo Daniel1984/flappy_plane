@@ -55,7 +55,7 @@
     var plane = new Plane();
     this.addChild(new Clouds());
     this.addChild(plane);
-    this.addChild(new Puffs(plane));
+    //this.addChild(new Puffs(plane));
     this.addChild(new Rocks());
     this.addChild(new Ground());
     this.addChild(new Score());
