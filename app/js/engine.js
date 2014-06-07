@@ -32,7 +32,7 @@
   };
 
   Main.prototype.setupCanvas = function() {
-    this.renderer = PIXI.autoDetectRenderer(FP.getWidth(), FP.getHeight(), null, false, true);
+    this.renderer = PIXI.autoDetectRenderer(FP.getWidth(), FP.getHeight());
     document.body.appendChild(this.renderer.view);
   };
 

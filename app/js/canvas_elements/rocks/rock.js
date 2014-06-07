@@ -26,8 +26,7 @@
       this.recalibratePosition();
       this.increaseDifficulty();
       this.scoreRecorded = false;
-    }
-    if(this.position.x + this.width / 2 < this.gameWidth / 2) {
+    } else if(this.position.x < FP.PLANE_X_POS) {
       this.recordScore();
     }
     this.position.x -= FP.ROCKS_SPEED;
@@ -45,7 +44,7 @@
   };
 
   Rock.prototype.getDeltaX = function() {
-    return FP.isMobile() ? (Math.random() * 20 - 10) : (Math.random() * 40 - 20);
+    return FP.isMobile() ? (Math.random() * 20 - 60) : (Math.random() * 40 - 120);
   };
 
   Rock.prototype.increaseDifficulty = function() {

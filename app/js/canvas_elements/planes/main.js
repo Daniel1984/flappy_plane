@@ -5,15 +5,17 @@
 
   function Plane() {
     var planeTextures = [];
+    var awailablePlanes = ['Yellow', 'Green', 'Red', 'Blue'];
+    var randomPlane = awailablePlanes[Math.floor(Math.random() * 4)];
     for(var i=0; i < 3; i++) {
-      var texturePath = FP.PLANE_PATH + 'plane' + FP.DEFAULT_PLANE; 
+      var texturePath = FP.PLANE_PATH + 'plane' + randomPlane; 
       var texture = PIXI.Texture.fromFrame(texturePath + (i+1) + '.png');
       planeTextures.push(texture);
     }
     PIXI.MovieClip.call(this, planeTextures);
     this.gotoAndPlay(1);
     this.position.y = Math.floor(FP.getHeight() / 2 - this.height / 2);
-    this.position.x = Math.floor(FP.getWidth() / 2 - this.width / 2);
+    this.position.x = FP.PLANE_X_POS = Math.floor(FP.getWidth() / 3 - this.width / 2);
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
     this.scale.x = this.scale.y = 0.8;

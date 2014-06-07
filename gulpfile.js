@@ -11,6 +11,8 @@ var gulp = require('gulp'),
     cordova = require('cordova'),
     sequence = require('run-sequence'),
     less = require('gulp-less'),
+    clean = require('gulp-clean'),
+    zip = require('gulp-zip'),
     gutil =  require('gulp-util');
 
 var paths = {
@@ -56,8 +58,8 @@ gulp.task('img', function() {
   gulp.src(paths.source.img)
     .pipe(plumber())
     .pipe(imagemin({
-      // optimizationLevel: 1,
-      // progressive: true
+      optimizationLevel: 1,
+      progressive: true
     }))
     .pipe(gulp.dest(paths.dest.img));
 });
@@ -66,6 +68,12 @@ gulp.task('lint', function() {
   gulp.src(paths.source.js)
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
+});
+
+gulp.task('zip', function () {
+  gulp.src('public/**/*')
+    .pipe(zip('dist.zip'))
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('watch', function() {
@@ -79,6 +87,5 @@ gulp.task('watch', function() {
     gulp.run('css');
   })
 });
-
 
 gulp.task('build', ['js', 'css', 'img']);

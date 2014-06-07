@@ -1,3 +1,4 @@
+require('newrelic');
 var express = require('express');
 var router = require('./routes/router');
 var http = require('http');

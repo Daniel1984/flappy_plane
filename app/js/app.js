@@ -21,15 +21,13 @@ window.FP = {
   PLANE_FALLING: true,
   PLANE_MAX_LIFT: 90,
   PLANE_OBSTICLES: [],
-  DEFAULT_PLANE: 'Yellow',
-  AWAILABLE_PLANES: ['Yellow', 'Green', 'Blue', 'Red'],
   PLANE_PATH: 'app/img/Planes/',
   LANDSCAPE_PATH: 'app/img/landscape/',
   CLOUDS_PATH: '/img/spritesheets/',
   LETTERS_PATH: 'app/img/Letters/',
   NUMBERS_PATH: 'app/img/Numbers/',
-  DEVICE: parser(navigator.userAgent).device.type,
   UI_PATH: 'app/img/ui/',
+  DEVICE: parser(navigator.userAgent).device.type, 
   IS_NATIVE: CocoonJS.App.nativeExtensionObjectAvailable,
 
   isMobile: function() {
@@ -38,13 +36,13 @@ window.FP = {
   },
 
   getWidth: function() {
-    if(this.isMobile() || this.IS_NATIVE || window.innerWidth < 1300) return window.innerWidth;
-    return 1300;
+    if(this.isMobile() || this.IS_NATIVE || window.innerWidth < 720) return window.innerWidth;
+    return 720;
   },
 
   getHeight: function() {
-    if(this.isMobile() || this.IS_NATIVE || window.innerHeight < 670) return window.innerHeight;
-    return 670;
+    if(this.isMobile() || this.IS_NATIVE || window.innerHeight < 640) return window.innerHeight;
+    return 640;
   }
 };
 
@@ -54,5 +52,5 @@ var Router = require('./web_ui/router');
 window.addEventListener('load', function() {
   new Engine();
   FP.router = new Router();
-
+  if(!FP.isMobile() || !FP.IS_NATIVE) document.body.className = 'desktop';
 }, false);

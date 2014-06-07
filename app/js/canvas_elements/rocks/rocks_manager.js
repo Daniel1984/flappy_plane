@@ -20,32 +20,24 @@
   };
 
   Main.prototype.addRocks = function() {
-    var texture, yPlacement, posX, rock, width_delta;
+    var texture, yPlacement, posX, rock, height_delta;
+    var availableRocks = ['', 'Snow', 'Grass'];
+    var randomRock = availableRocks[Math.floor(Math.random() * 3)];
+    var textureUp = PIXI.Texture.fromFrame('/img/rock' + randomRock + '.png');
+    var textureDown = PIXI.Texture.fromFrame('/img/rock' + randomRock + 'Down.png');
     for(var i = 0; i < FP.NUMBER_OF_ROCKS; i += 1) {
-      switch(i) {
-        case 0:
-          width_delta = -10; 
-          texture = PIXI.Texture.fromFrame('/img/rockSnow.png');
-          yPlacement = 'bottom';
-          break;
-        case 1:
-          width_delta = 50; 
-          texture = PIXI.Texture.fromFrame('/img/rockSnowDown.png');
-          yPlacement = 'top';
-          break;
-        case 2:
-          width_delta = 50; 
-          texture = PIXI.Texture.fromFrame('/img/rockSnow.png');
-          yPlacement = 'bottom';
-          break;
-        case 3:
-          width_delta = -10;
-          texture = PIXI.Texture.fromFrame('/img/rockSnowDown.png');
-          yPlacement = 'top';
-          break;
+      if(i === 0 || i === 2) {
+        height_delta = 30; 
+        texture = textureUp;
+        yPlacement = 'bottom';
+      }
+      if (i === 1 || i === 3) {
+        height_delta = 60; 
+        texture = textureDown;
+        yPlacement = 'top';
       }
       posX = FP.getWidth() + (FP.NUMBER_OF_ROCKS - i) * (FP.ROCK_DISTANCE + texture.width);
-      rock = new Rock(texture, posX, yPlacement, width_delta);
+      rock = new Rock(texture, posX, yPlacement, height_delta);
       FP.PLANE_OBSTICLES.push(rock);
       this.addChild(rock);
     }

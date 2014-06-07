@@ -4,8 +4,9 @@
   var PIXI = require('pixi.js');
 
   function Ground() {
-    // var texture = PIXI.Texture.fromFrame(FP.LANDSCAPE_PATH + "groundGrass.png");
-    var texture = PIXI.Texture.fromImage("/img/groundGrass.png");
+    var availableGround = ['Grass', 'Dirt', 'Rock', 'Snow'];
+    var randomGround = availableGround[Math.floor(Math.random() * 4)];
+    var texture = PIXI.Texture.fromImage('/img/ground' + randomGround + '.png');
     PIXI.TilingSprite.call(this, texture, FP.getWidth(), texture.height);
     var deltaYmobile = FP.isMobile() ? 20 : 0;
     this.position.y = Math.ceil(FP.getHeight() - texture.height + deltaYmobile);
