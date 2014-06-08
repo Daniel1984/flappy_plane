@@ -11,7 +11,6 @@ var gulp = require('gulp'),
     cordova = require('cordova'),
     sequence = require('run-sequence'),
     less = require('gulp-less'),
-    clean = require('gulp-clean'),
     zip = require('gulp-zip'),
     gutil =  require('gulp-util');
 

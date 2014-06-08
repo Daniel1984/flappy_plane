@@ -10,7 +10,7 @@
     this.height = 100;
     this.position.y = FP.getHeight() - this.height;
     this.position.x = FP.getWidth() / 2 - this.width / 2;
-    this.addShareBtn();
+//    this.addShareBtn();
     this.restartBtn();
     this.addLeaderBoardBtn();
   }
@@ -37,11 +37,13 @@
   ResetGameControls.prototype.restartBtn = function() {
     var _this = this;
     var options = {
-      width: 140, 
+ //     width: 140, 
+      width: 300,
       letters: ['R', 'E', 'S', 'T', 'A', 'R', 'T'],
       letterH: 20,
       letterW: 15,
-      lettersXoffset: 17,
+//      lettersXoffset: 17,
+      lettersXoffset: 100,
       callback: function() {
         _this.parent.parent.restartGame();
       }
