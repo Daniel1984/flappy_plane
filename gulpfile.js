@@ -72,7 +72,7 @@ gulp.task('lint', function() {
 gulp.task('zip', function () {
   gulp.src('public/**/*')
     .pipe(zip('dist.zip'))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('watch', function() {
